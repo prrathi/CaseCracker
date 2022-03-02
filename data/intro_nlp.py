@@ -15,7 +15,8 @@ df = pd.read_csv("sample.csv") #TODO: organize loaded data as dataframes with te
 columns = ["NaiveSentiment", "LearnedSentiment"] #ADD MORE LATER
 dfOutput = pd.DataFrame(columns=columns)
 
-# counts occurrences of ticker symbols in comments
+# get naive polarity score using the sentiment analysis tool from nltk
+# run the analysis of texts for each entry in the columm, this gives us overall sentiment for each speech given 
 naive = []
 corpus = df["Sample2"].values
 for text in df["Sample2"]: # change to actual column name
@@ -29,9 +30,11 @@ for text in df["Sample2"]: # change to actual column name
     for token in clean_tokens:
         if token in stopwords.words('english'):
             clean_tokens.remove(token)
+    # remove stop words for future use in other nlp modeling
 
 processed_corpus = preprocess_documents(corpus)
 dict_corpus = [gensim.corpora.Dictionary(processed_corpus).doc2bow(text) for text in processed_corpus]
+# preprocessing for the corpus
 
 tfidf = gensim.models.TfidfModel(dict_corpus, smartirs='nfc')
 tfidf_corpus = tfidf[dict_corpus]
@@ -42,6 +45,8 @@ for num_topic in range(50, 1000, 50):
     index = gensim.similarities.MatrixSimilarity(lsi[tfidf_corpus])
     corpus_lsi = lsi[tfidf_corpus]
     results = index[corpus_lsi]
+
+    # results for each of the num_topic possibilities
     print(results)
     print()
     # for s in sorted(enumerate(results), key=lambda item: -item[1]):
