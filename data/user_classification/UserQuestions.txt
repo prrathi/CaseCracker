@@ -1,0 +1,116 @@
+Questions for each Issue Area to classify the User into the right cluster
+
+ISSUE AREA 1: Criminal Procedure 
+Criminal Procedure deals with the set of rules governing the series of proceedings through which the government enforces substantive criminal law.
+
+"People should have the right to bear arms."
+Agree: Conservative (1)
+Disagree: Liberal(2)
+
+"Apple should allow law enforcement permission to go through crime suspect's phones."
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+"The death sentence should be used."
+Agree: Conservative(1)
+Disagree: Liberal(2)
+
+
+
+ISSUE AREA 2: Civil Rights
+"Absentee Voting should be more accessible."
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+"Affirmative action should be abolished"
+Agree: Conservative(1)
+Disagree: Liberal(2)
+
+"I support LGBTQ+ rights"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+
+
+ISSUE AREA 3: First Amendment
+"School-wide prayer should be allowed."
+Agree: Conservative(1)
+Disagree: Liberal(2)
+
+"Twitter has the right to censor speech it deems "inappropriate or harmful"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+"People should have the right to protest without organization."
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+
+ISSUE AREA 4: Due Process
+"The government has the right to enforce mask mandates." 
+Agree: Liberal(2)
+Disagree: Conservative(2)
+
+"Should prosecutors be given the power to determine the charges a defendent is faced with?"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+"Should cash bail be outlawed"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+ISSUE AREA 5: Privacy
+"Abortion should be legalized nationally."
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+"DNA databases like 23AndMe shouldn't be allowed to post data publicly"
+Agree: Conservative(1)
+Disagree: Liberal(2)
+
+"Law enforcement has the right to sift through personal data to prevent terrorism and work in the interests of national security"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+ISSUE AREA 6: Attorneys
+"Attorneys should have a duty to inform law enforcement when their client admits to something dangerous."
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+
+
+ISSUE AREA 7: Unions
+"Should workers be forced to pay union dues?"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+
+ISSUE AREA 8: Economic Activity
+"The government should have the ability to break up Big Tech"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+
+
+
+ISSUE AREA 9: Judicial Power
+"The Supreme Court should follow change in societal norms over past precedence"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+ISSUE AREA 10: Federalism
+"Federal laws should take precedence even if individual states vote against it."
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+"Federal government should be able to withhold federal funding to ensure state compliance"
+Agree: Liberal(2)
+Disagree: Conservative(1)
+
+ISSUE AREA 11: Interstate Relations -> NAN 
+
+ISSUE AREA 12: Federal Taxation
+
+ISSUE AREA 13: Miscellaneous -> NA
+
+ISSUE AREA 14: Private Action 
