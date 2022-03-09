@@ -15,3 +15,4 @@ def test_distance():
     targetJustice = [1, 1.5, 2, 2, 1.4, 1.9, 1.5, 1, 2, 1.5, 1, 2, 1.3, 1.4]
     assert classify.distance(responses, targetJustice) == 0.266
 
+
