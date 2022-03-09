@@ -1,11 +1,6 @@
 import pytest
-import os
-os.chdir("..")
-curr = os.getcwd()
-curr += "/user_classification/"
-# classify = __import__(curr)
 import sys
-sys.path.insert(1, curr)
+sys.path.insert(1, "./data/user_classification/")
 import classify
 # Unit test for findIssueAvg() function in classify.py
 def test_findIssueAvg():
