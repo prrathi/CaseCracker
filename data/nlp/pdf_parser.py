@@ -1,3 +1,4 @@
+from nbformat import write
 import pandas as pd
 import PyPDF4
 import re
@@ -5,20 +6,27 @@ import itertools
 import csv
 import datetime
 
-now = datetime.datetime.now()
+# params: 
+# writecsv: the csv file with dataframe to write to
+# filepath: filepath of the pdf reading from
+# OPTIONAL year: year number, used when writing to csv
+# OPTIONAL id: id number, used when writing to csv
+def readPdf(write_csv, filepath, year = 0, id = ''):
 
-transcripts = pd.read_csv('transcripts.csv').iloc[:,1:]
-print(transcripts.columns)
-def read_pdf(year, pdf_id, transcripts):
-
-    sample = 'transcripts/' + year + '/' + pdf_id + '.pdf'
-    pdfFileObj = open(sample, 'rb')
+    pdfFileObj = open(filepath, 'rb')
     pdfReader = PyPDF4.PdfFileReader(pdfFileObj)
 
     if pdfReader.isEncrypted:
         pdfReader.decrypt('')
 
-    # get page 0, process it separately to get names of appearances
+    (pageObj, names, positions) = getNames(pdfReader)
+    
+    (text, wrote) = readWords(pdfReader, pageObj, names, positions, year, write_csv)
+    return text
+
+# params: 
+# pdfReader: pdfReader outputted from the pypdf4's pdf file reader 
+def getNames(pdfReader):
     pageObj0 = pdfReader.getPage(0)
     startPage = pageObj0.extractText()
     startPageLines = startPage.split('\n')
@@ -104,6 +112,7 @@ def read_pdf(year, pdf_id, transcripts):
                 if(count2 == len(names)):
                     break
         pageObj = pdfReader.getPage(3)
+
     else:
         count2 = 0
         startPageLines2 = pdfReader.getPage(1).extractText().split('\n') 
@@ -124,6 +133,17 @@ def read_pdf(year, pdf_id, transcripts):
         pageObj = pdfReader.getPage(2)
         pageObj.mergePage(pdfReader.getPage(3))
 
+    return (pageObj, names, positions)
+
+
+# params:
+# pdfReader: same pdfReader input as above
+# pageObj: starting page to which all next pages are added
+# names: list of speakers' names
+# positions: list of each speakers' side, in same order as above
+# year: same input as year in original function
+# writecsv: same input as write_csv in original function
+def readWords(pdfReader, pageObj, names, positions, year, writecsv):
     # add all the pages as one big string
     for i in range(4, pdfReader.getNumPages()):
         # get each additional page
@@ -169,16 +189,20 @@ def read_pdf(year, pdf_id, transcripts):
 
     # the totalNameWords corresponds to each speaker, so we now map these back to what position they were, petitioner or respondent
     # then you aggregate all the words spoken by petitioner and spoken by respondent
-    finalWords = [year, pdf_id, "", ""]
-    for pos in range(len(positions)):
-        if positions[pos] == 'p':
-            finalWords[2] = finalWords[2] + " " + totalNameWords[i]
-        elif positions[pos] == 'r':
-            finalWords[3] = finalWords[3] + " " + totalNameWords[i]
-    
-    transcripts = transcripts.append(pd.Series(finalWords, index = transcripts.columns), ignore_index=True)
-    return transcripts
-
-transcripts = read_pdf('2000', '00-24', transcripts)
-transcripts.to_csv('transcripts.csv')
-print(datetime.datetime.now() - now)
+    if year != 0:
+        finalWords = [year, id, "", ""]
+        for pos in range(len(positions)):
+            if positions[pos] == 'p':
+                finalWords[2] = finalWords[2] + " " + totalNameWords[pos]
+            elif positions[pos] == 'r':
+                finalWords[3] = finalWords[3] + " " + totalNameWords[pos]
+        writecsv = writecsv.append(pd.Series(finalWords, index = writecsv.columns), ignore_index=True)
+        return (finalWords, True)
+    else:
+        finalWords = ["", ""]
+        for pos in range(len(positions)):
+            if positions[pos] == 'p':
+                finalWords[0] = finalWords[0] + " " + totalNameWords[pos]
+            elif positions[pos] == 'r':
+                finalWords[1] = finalWords[1] + " " + totalNameWords[pos]
+        return (finalWords, False)
