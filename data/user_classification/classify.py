@@ -1,6 +1,11 @@
 import numpy as np
 import math
+import matplotlib.pyplot as plt
+import pandas as pd
+import csv
 
+
+justice_dict = pd.read_csv("/Users/jamesxie/Desktop/course-project-kk-b/data/user_classification/justice_dict.csv")
 # Function to find the average leaning for each 
 # Each issue area will have 3 questions, stored in a list "responses"
 # Return type: list of ints
@@ -26,6 +31,8 @@ def distance(userAvg, targetJustice):
         if (not math.isnan(targetJustice[i])):
             count += 1
             distance += (targetJustice[i] - userAvg[i]) * (targetJustice[i] - userAvg[i])
+    if (count == 0):
+        return -1
     distance = distance/count
     if (count >= 7):
         return round(distance,3)
@@ -66,9 +73,26 @@ def findClosestCentroid(userAvg, centroids):
         clusters.append(minIndex)
     return clusters
 
+def findJusticeName(justiceID):
+    print (justice_dict.head())
+    return(justice_dict.iat[justiceID,1])
 
 
+# Example method to use main
+def main():
+    # Import Dataframe
+    df = pd.read_csv("/Users/jamesxie/Desktop/course-project-kk-b/data/user_classification/justice_leanings.csv")
+    
+    df.drop(columns=df.columns[0],  
+        axis=1, 
+        inplace=True)
+    selfResponses = [1, 1.5, 2, 1, 1, 1, 2, 2, 2, 1, 1.2, 1.4, 2, 1.5, 1.75, 1.5, 1.25, 1, 1, 1, 1, 2, 2, 2, 1.5, 1.5, 1.5, 1.1, 1.0, 1.2, 1.5, 1.6, 1.7, 2, 2, 2, 1.2, 1.4, 1.6, 1.5, 1, 2]
+    issueAverages = findIssueAvg(selfResponses)
+    closestJustice = findClosestJustice(issueAverages, df.values)
+    print(findJusticeName(closestJustice))
     
     
     
+if __name__ == "__main__":
+    main()
 
