@@ -5,6 +5,8 @@ import re
 import itertools
 import csv
 import datetime
+import os
+now = datetime.datetime.now()
 
 # params: 
 # writecsv: the csv file with dataframe to write to
@@ -206,3 +208,11 @@ def readWords(pdfReader, pageObj, names, positions, year, writecsv):
             elif positions[pos] == 'r':
                 finalWords[1] = finalWords[1] + " " + totalNameWords[pos]
         return (finalWords, False)
+
+#Iterates through every transcript from every year, processes + separates them into 2 sides, and then saves to transcripts.csv
+for year in ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009']:
+    transcripts = pd.read_csv('transcripts.csv').iloc[:,1:]
+    for filename in os.listdir('transcripts/' + year):
+        transcripts = readPdf(year, filename, transcripts)
+        print(datetime.datetime.now() - now)
+    transcripts.to_csv('transcripts.csv')
