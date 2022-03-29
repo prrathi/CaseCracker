@@ -1,4 +1,4 @@
-.transcript-container {
+.quizfront-container {
     /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
     margin-top: 165px;
     height: 100vh;
@@ -11,7 +11,7 @@
     object-fit: contain;
   }
   
-  .transcript-container > h1 {
+  .quizfront-container > h1 {
     color: rgb(0, 0, 0);
     width: 600px;
     height: 300px;
@@ -19,7 +19,7 @@
     text-align: center;
   }
   
-  .transcript-container > p {
+  .quizfront-container > p {
     /* margin-top: 8px; */
     color: #fff;
     font-size: 32px;
@@ -27,27 +27,27 @@
       'Lucida Sans', Arial, sans-serif;
   }
   
-  .transcript-btns {
+  .quizfront-btns {
     margin-top: 5px;
   }
   
-  .transcript-btns .btn {
+  .quizfront-btns .btn {
     margin: 6px;
   }
   
   
-  .transcriptbox {
+  .quizfrontbox {
     width: 600px;
     height: 90px;
     margin: 5px;
     float: left;
-    font-size: 28px;
+    font-size: 26px;
     text-align: center;
   }
 
-  .transcriptsmallbox {
+  .quizfrontsmallbox {
     width: 600px;
-    height: 90px;
+    height: 130px;
     margin: 10px;
     font-size: 15px;
     text-align: center;

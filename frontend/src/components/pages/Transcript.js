@@ -13,10 +13,9 @@ function Transcript() {
       </div>
 
       <div className='transcriptsmallbox'>
-        <p>JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi </p>
+        <p>Input past court transcripts, including district and appellate transcripts, 
+          to determine how they would fare at the Supreme Court level or input potential future court transcripts 
+          to determine how they would fare at the Supreme Court level. </p>
       </div>
 
       <div className='transcript-btns'>

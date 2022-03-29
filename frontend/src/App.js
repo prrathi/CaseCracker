@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Transcript from './components/pages/Transcript';
+import QuizFront from './components/pages/QuizFront';
 import About from './components/pages/About';
 import Justices from './components/pages/Justices';
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/Transcripts' element={<Transcript />}></Route> 
         
         <Route path='/About' element={<About />}></Route> 
+        <Route path='/QuizFront' element={<QuizFront />}></Route> 
         <Route path='/Justices' element={<Justices />}></Route> 
       </Routes>
       </Router>

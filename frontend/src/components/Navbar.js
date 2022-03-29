@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
+import { QuizButton } from './QuizButton';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
@@ -70,7 +71,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>Take Quiz</Button>}
+          {button && <QuizButton buttonStyle='btn--outline'>Take Quiz</QuizButton>}
         </div>
       </nav>
     </>
