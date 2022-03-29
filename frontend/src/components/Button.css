@@ -2,6 +2,7 @@
    
 :root {
     --primary: #ffffff;
+    --secondary: #000000;
   }
   
   .btn {
@@ -15,7 +16,7 @@
   .btn--primary {
     background-color: var(--primary);
     color: #000000;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--secondary);
   }
   
   .btn--outline {

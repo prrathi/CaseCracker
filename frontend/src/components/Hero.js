@@ -8,24 +8,30 @@ import './Hero.css';
 function Hero() {
   return (
     <div className='hero-container'>
-      
-      <h2>SCOTUS Case Predictor</h2>
-      <div className='input-btns'>
-        <Button
-          className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-        >
-          Input Transcript
-        </Button>
-        <Button
-          className='transcript-btns'
-          buttonStyle='btn--primary'
-          buttonSize='btn--large'
-        >
-          Take Quiz
-        </Button>
-        <img src={image} height={400} width={600} />
+      <div className='box'>
+        <div className='smallbox'>
+          <h1>SCOTUS Case Predictor</h1>
+        </div>
+    
+        <div className='input-btns'>
+          <Button
+            className='btns'
+            buttonStyle='btn--outline'
+            buttonSize='btn--large'
+          >
+            Input Transcript
+          </Button>
+          <Button
+            className='transcript-btns'
+            buttonStyle='btn--primary'
+            buttonSize='btn--large'
+          >
+            Take Quiz
+          </Button>
+        </div>
+      </div>
+      <div className = 'box'>
+        <img src={image} height={500} width={750} />
       </div>
     </div>
   );

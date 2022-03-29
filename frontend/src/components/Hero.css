@@ -4,8 +4,8 @@
     /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
     height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 0 0 1000px rgba(255, 252, 252, 0.2);
@@ -38,3 +38,17 @@
     margin-left: 4px;
   }
   
+  .box {
+    width: 600px;
+    height: 600px;
+    margin: 10px;
+    float: left;
+    font-size: 32px
+  }
+
+  .smallbox {
+    width: 600px;
+    height: 300px;
+    margin: 10px;
+  
+  }
