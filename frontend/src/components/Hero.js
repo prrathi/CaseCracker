@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { Button } from './Button';
+import { QuizButton } from './QuizButton';
 import image from './scotus_images.png';
 import './Hero.css';
 
@@ -21,13 +22,13 @@ function Hero() {
           >
             Input Transcript
           </Button>
-          <Button
+          <QuizButton
             className='transcript-btns'
             buttonStyle='btn--primary'
             buttonSize='btn--large'
           >
             Take Quiz
-          </Button>
+          </QuizButton>
         </div>
       </div>
       <div className = 'box'>

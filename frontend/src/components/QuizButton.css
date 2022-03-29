@@ -1,0 +1,46 @@
+
+   
+:root {
+    --primary: #ffffff;
+    --secondary: #000000;
+  }
+  
+  .quizbtn {
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .quizbtn--primary {
+    background-color: var(--primary);
+    color: #000000;
+    border: 1px solid var(--secondary);
+  }
+  
+  .quizbtn--outline {
+    background-color: #512D21;
+    color: #ffffff;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+  }
+  
+  .quizbtn--medium {
+    padding: 8px 20px;
+    font-size: 18px;
+  }
+  
+  .quizbtn--large {
+    padding: 12px 26px;
+    font-size: 20px;
+  }
+  
+  .quizbtn--large:hover,
+  .quizbtn--medium:hover {
+    transition: all 0.3s ease-out;
+    background: #000000;
+    color: #ffffff;
+    transition: 250ms;
+  }
