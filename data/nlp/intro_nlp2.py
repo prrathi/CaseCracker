@@ -10,17 +10,16 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from datetime import date
 import re
 import gensim
-from gensim import models
+from gensim import models, corpora
 from gensim.parsing.preprocessing import preprocess_documents
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 
-dfClean = pd.read_csv("transcripts_clean2.csv", encoding = 'unicode_escape', engine ='python')
-
-columns = ["Polarity", "LearnedSentiment"] #ADD MORE LATER
-dfOutput = pd.DataFrame(index=range(dfClean.shape[0]), columns=["Polarity"])
+dfClean = pd.read_csv("clean_final.csv", encoding = 'unicode_escape', engine ='python')
 
 numrows = dfClean.shape[0]
 
+# compute the polarity score given a dataframe and the two column names to compare, returns a list
 def polarityScore(df, cols):
     vader = SentimentIntensityAnalyzer()
     polarity = []
@@ -35,55 +34,50 @@ def polarityScore(df, cols):
         polarity.append(col1 - col0)
     return polarity
 
-def convertCorpus(df, col):
-    corpus = df[col].values
+# determine the corpus then used for nlp techniques given a dtaframe and the column name
+def convertCorpus(df, cols):
+    corpus = []
+    for col in cols:
+        corpus.extend(df[col].tolist())
     processed_corpus = preprocess_documents(corpus)
     dict_corpus = [gensim.corpora.Dictionary(processed_corpus).doc2bow(text) for text in processed_corpus]
     tfidf = gensim.models.TfidfModel(dict_corpus, smartirs='nfc')
     tfidf_corpus = tfidf[dict_corpus]
     return tfidf_corpus
 
-cols = ["Petitioner", "Respondent"]
 
+# dfOutput = pd.DataFrame(index=range(dfClean.shape[0]), columns=["Polarity"])
 # polarityCol = polarityScore(dfClean, cols)
 # dfOutput["Polarity"] = pd.Series(polarityCol)
 # dfOutput.to_csv("polarity.csv")
 # print("finished polarity")
 
-petCorpus = convertCorpus(dfClean, "Petitioner")
-resCorpus = convertCorpus(dfClean, "Respondent")
+# first time through:
+# cols = ["Petitioner", "Respondent"]
+# corpus = convertCorpus(dfClean, cols)
+# corpora.MmCorpus.serialize('./corpus.mm', corpus)
+corpus = corpora.MmCopus('./corpus.mm')
 
+# ONCE WE GET THE BINARY FOR WHICH SIDE WON
 for topic in range(50, 500, 50):
-    model = models.LsiModel(petCorpus, num_topics = topic)
+    print("number of latent variables: ", topic)
+    model = models.LsiModel(corpus, num_topics = topic)
     dfLsi = pd.DataFrame(columns = range(topic))
     for i in range(numrows):
-        dfLsi.loc[len(dfLsi.index)] = [item[1] for item in model[petCorpus[i]]]
-    # ONCE WE GET THE BINARY FOR WHICH SIDE WON
+        petitioner = [item[1] for item in model[corpus[i]]]
+        respondent = [item[1] for item in model[corpus[i + numrows]]]
+        dfLsi.loc[len(dfLsi.index)] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
     logreg = LogisticRegression()
     logreg.fit(dfLsi, actual)
     acc = logreg.score(dfLsi, actual)
-    print("number of latent variables: ", topic)
-    print("accuracy: ", acc)
-    print()
+    print("logistic accuracy: ", acc)
 
+    svm = SVC(kernel = 'linear')
+    svm.fit(dfLsi, actual)
+    acc = svm.score(dfLsi, actual)
+    print("support vector machine accuracy: ", acc)
+    
+    print()
     break # comment out later
 
 print("finished lsi")
-
-"""
-for num_topic in range(50, 1000, 50):
-    print(num_topic)
-    lsi = gensim.models.LsiModel(tfidf_corpus, num_topics=num_topic)
-    index = gensim.similarities.MatrixSimilarity(lsi[tfidf_corpus])
-    corpus_lsi = lsi[tfidf_corpus]
-    results = index[corpus_lsi]
-
-    # results for each of the num_topic possibilities
-    print(results)
-    print()
-    # for s in sorted(enumerate(results), key=lambda item: -item[1]):
-        # print(s[0])
-        # print(s[1])
-    # for text in df["Sample2"]:
-        # print(lsi[text])
-"""
