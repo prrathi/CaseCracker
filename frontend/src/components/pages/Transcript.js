@@ -8,11 +8,11 @@ import '../Transcript.css';
 function Transcript() {
   return (
     <div className='transcript-container'>
-      <div className='box'>
+      <div className='transcriptbox'>
         <h1>Input Transcript</h1>
       </div>
 
-      <div className='smallbox'>
+      <div className='transcriptsmallbox'>
         <p>JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
         JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
         JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 

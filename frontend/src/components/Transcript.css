@@ -35,11 +35,8 @@
     margin: 6px;
   }
   
-  .fa-play-circle {
-    margin-left: 4px;
-  }
   
-  .box {
+  .transcriptbox {
     width: 600px;
     height: 90px;
     margin: 5px;
@@ -48,7 +45,7 @@
     text-align: center;
   }
 
-  .smallbox {
+  .transcriptsmallbox {
     width: 600px;
     height: 130px;
     margin: 10px;
