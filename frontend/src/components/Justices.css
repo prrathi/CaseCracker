@@ -1,0 +1,51 @@
+.justices-container {
+    /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 0 1000px rgba(255, 252, 252, 0.2);
+    object-fit: contain;
+    font-family: 'Montserrat';
+    align-items: center;
+  }
+
+  .justices-container > h1 {
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    margin-left: 10.5%;
+    margin-right: 10.5%;
+    text-align: center;
+  }
+  
+  .justices-container > p {
+    margin-top: 16px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 10.5%;
+    margin-right: 10.5%;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    margin-left: 10.5%;
+    margin-right: 10.5%;
+    width: 1300px;
+    vertical-align: middle;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: left;
+    display: flex;
+    width: 440px;
+    height: 200px;
+  }
+
+  .rightSide {
+    margin-left: 2%;
+  }
