@@ -79,38 +79,21 @@ Disagree: Conservative(1)
 
 
 
-ISSUE AREA 7: Unions
-"Should workers be forced to pay union dues?"
-Agree: Liberal(2)
-Disagree: Conservative(1)
-
-
 ISSUE AREA 8: Economic Activity
 "The government should have the ability to break up Big Tech"
 Agree: Liberal(2)
 Disagree: Conservative(1)
 
-
-
-
-ISSUE AREA 9: Judicial Power
-"The Supreme Court should follow change in societal norms over past precedence"
+"The government should be able to increase taxes on the wealthy to use for governmental budget"
 Agree: Liberal(2)
 Disagree: Conservative(1)
 
-ISSUE AREA 10: Federalism
-"Federal laws should take precedence even if individual states vote against it."
-Agree: Liberal(2)
-Disagree: Conservative(1)
 
-"Federal government should be able to withhold federal funding to ensure state compliance"
-Agree: Liberal(2)
-Disagree: Conservative(1)
 
-ISSUE AREA 11: Interstate Relations -> NAN 
 
-ISSUE AREA 12: Federal Taxation
 
-ISSUE AREA 13: Miscellaneous -> NA
 
-ISSUE AREA 14: Private Action 
+
+
+
+
