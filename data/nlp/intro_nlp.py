@@ -1,5 +1,3 @@
-from operator import index
-from bleach import clean
 import pandas as pd
 import numpy as np
 import time
@@ -9,9 +7,6 @@ stopwords.words('english')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from datetime import date
 import re
-from gensim import models
-from gensim.parsing.preprocessing import preprocess_documents
-
 
 df = pd.read_csv("transcripts_new.csv", encoding = 'unicode_escape', engine ='python')
 # df.dropna(how = 'all', inplace=True)
