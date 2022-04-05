@@ -3,6 +3,25 @@ import '../../App.css';
 import { QuizButton } from '../QuizButton';
 import image from '../scotus_images.png';
 import '../QuizFront.css';
+import styled from 'styled-components';
+
+
+const QuizB = styled.button`
+  padding: 8px 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #512D21;
+  color: #ffffff;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+  padding: 12px 26px;
+  font-size: 20px;
+  margin: 0px 5px
+
+`
 
 
 function QuizFront() {
@@ -20,13 +39,16 @@ function QuizFront() {
       </div>
 
       <div className='quizfront-btns'>
-          <QuizButton
+          {/* <QuizButton
           className='btn'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
           >
             Begin Quiz
-          </QuizButton>
+          </QuizButton> */}
+          <a href = "https://www.google.com/search?q=jayapraneetrathi&rlz=1C5CHFA_enUS966US975&oq=jayapraneetrathi&aqs=chrome..69i57j0i546l4.3998j0j7&sourceid=chrome&ie=UTF-8">
+            <QuizB> Begin Quiz </QuizB>
+          </a>
         </div>
     </div>
   );
