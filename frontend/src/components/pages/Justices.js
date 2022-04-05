@@ -2,22 +2,6 @@ import React from 'react';
 import '../../App.css';
 import { Button } from '../Button';
 import '../Justices.css';
-import styled from 'styled-components';
-
-const JusticeButton = styled.button`
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    background-color: #512D21;
-    color: #ffffff;
-    border: 1px solid var(--primary);
-    transition: all 0.3s ease-out;
-    padding: 9px 20px;
-    font-size: 17px;
-    margin: 0px 0px
-
-`
 
 function Justices() {
   return (
@@ -28,81 +12,117 @@ function Justices() {
                 <img src="./images/john_roberts.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>John Roberts</p>
-                    <a href = 'https://en.wikipedia.org/wiki/John_Roberts'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
             <div className="grid-item">
                 <img src="./images/clarence_thomas.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>Clarence Thomas</p>
-                    <a href = 'https://en.wikipedia.org/wiki/Clarence_Thomas'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
             <div className="grid-item">
                 <img src="./images/stephen_breyer.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>Stephen Breyer</p>
-                    <a href = 'https://en.wikipedia.org/wiki/Stephen_Breyer'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
             <div className="grid-item">
                 <img src="./images/samuel_alito.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>Samuel Alito</p>
-                    <a href = 'https://en.wikipedia.org/wiki/Samuel_Alito'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
             <div className="grid-item">
                 <img src="./images/sonia_sotomayor.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>Sonia Sotomayor</p>
-                    <a href = 'https://en.wikipedia.org/wiki/Sonia_Sotomayor'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
             <div className="grid-item">
                 <img src="./images/elena_kagan.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>Elena Kagan</p>
-                    <a href = 'https://en.wikipedia.org/wiki/Elena_Kagan'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
             <div className="grid-item">
                 <img src="./images/neil_gorsuch.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>Neil Gorsuch</p>
-                    <a href = 'https://en.wikipedia.org/wiki/Neil_Gorsuch'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
             <div className="grid-item">
                 <img src="./images/brett_kavanaugh.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>Brett Kavanaugh</p>
-                    <a href = 'https://en.wikipedia.org/wiki/Brett_Kavanaugh'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
             <div className="grid-item">
                 <img src="./images/amy_coney_barrett.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>Amy Coney Barrett</p>
-                    <a href = 'https://en.wikipedia.org/wiki/Amy_Coney_Barrett'>
-                        <JusticeButton> Learn More </JusticeButton>
-                    </a>
+                    <Button
+                    className='btn'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--medium'
+                    >
+                        Learn More
+                    </Button>
                 </div>
             </div>
         </div>
