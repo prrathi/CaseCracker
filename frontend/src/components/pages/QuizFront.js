@@ -3,8 +3,7 @@ import '../../App.css';
 import { QuizButton } from '../QuizButton';
 import image from '../scotus_images.png';
 import '../QuizFront.css';
-
-
+import MySurvey from './surveys/surveyTypeone';
 function QuizFront() {
   return (
     <div className='quizfront-container'>
