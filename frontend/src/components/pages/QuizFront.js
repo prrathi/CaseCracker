@@ -32,10 +32,8 @@ function QuizFront() {
       </div>
 
       <div className='quizfrontsmallbox'>
-        <p>JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi </p>
+        <p> This survey contains a series of questions about your own political leaning. You will be given a list of statements and 
+          you must select whether you agree or disagree. </p>
       </div>
 
       <div className='quizfront-btns'>
@@ -46,7 +44,7 @@ function QuizFront() {
           >
             Begin Quiz
           </QuizButton> */}
-          <a href = "https://www.google.com/search?q=jayapraneetrathi&rlz=1C5CHFA_enUS966US975&oq=jayapraneetrathi&aqs=chrome..69i57j0i546l4.3998j0j7&sourceid=chrome&ie=UTF-8">
+          <a href = './Survey'>
             <QuizB> Begin Quiz </QuizB>
           </a>
         </div>
