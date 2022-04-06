@@ -3,6 +3,7 @@ import '../../App.css';
 import { QuizButton } from '../QuizButton';
 import image from '../scotus_images.png';
 import '../QuizFront.css';
+import MySurvey from './surveys/surveyTypeone';
 import styled from 'styled-components';
 
 
@@ -22,7 +23,6 @@ const QuizB = styled.button`
   margin: 0px 5px
 
 `
-
 
 function QuizFront() {
   return (

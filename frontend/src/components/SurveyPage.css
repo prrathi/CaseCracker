@@ -1,0 +1,12 @@
+.survey-container {
+    /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
+    height: 100vh;
+    width: 50%;
+    display: inline;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(255, 252, 252, 0.2);
+    object-fit: contain;
+    font-family: 'Hevaltica, Arial, sans-serif';
+  }

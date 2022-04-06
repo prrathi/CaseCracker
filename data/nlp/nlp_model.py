@@ -139,7 +139,6 @@ test_polarity = test_polarity.values
     logreg.fit(train_dfLsi, train_actual)
     svm = LinearSVC()
     svm.fit(train_dfLsi, train_actual)
-
     test_dfLsi = pd.DataFrame(columns = range(topic))
     count = 0
     for i in test_samples:
@@ -215,4 +214,4 @@ print("Accuracy and deviation: %.2f%% (%.2f%%)" % (results.mean()*100, results.s
 # model.summary()
 
 # score = model.evaluate(test_dfLsi, test_actual, verbose=1)
-# print(score)
+# print(score) 

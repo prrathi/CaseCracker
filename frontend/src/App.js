@@ -7,6 +7,8 @@ import QuizFront from './components/pages/QuizFront';
 import About from './components/pages/About';
 import Justices from './components/pages/Justices';
 import JustLeans from './components/pages/JustLeans';
+import mySurvey from './components/pages/surveys/surveyTypeone';
+import SurveyPage from './components/pages/SurveyPage';
 function App() {
   return (
     <div className="App">
@@ -20,6 +22,7 @@ function App() {
         <Route path='/QuizFront' element={<QuizFront />}></Route> 
         <Route path='/Justices' element={<Justices/>}></Route> 
         <Route path='/JustLeans' element={<JustLeans/>}></Route> 
+        <Route path='/Survey' element={<SurveyPage />}></Route>
       </Routes>
       </Router>
 
