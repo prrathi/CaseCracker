@@ -6,6 +6,7 @@ import Transcript from './components/pages/Transcript';
 import QuizFront from './components/pages/QuizFront';
 import About from './components/pages/About';
 import Justices from './components/pages/Justices';
+import JustLeans from './components/pages/JustLeans';
 function App() {
   return (
     <div className="App">
@@ -17,7 +18,8 @@ function App() {
         
         <Route path='/About' element={<About />}></Route> 
         <Route path='/QuizFront' element={<QuizFront />}></Route> 
-        <Route path='/Justices' element={<Justices />}></Route> 
+        <Route path='/Justices' element={<Justices/>}></Route> 
+        <Route path='/JustLeans' element={<JustLeans/>}></Route> 
       </Routes>
       </Router>
 

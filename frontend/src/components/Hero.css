@@ -52,3 +52,23 @@
     margin: 10px;
   
   }
+
+  .justheader {
+    width: 1000px;
+    height: 1000px;
+    margin: 100px;
+  
+  }
+
+  .dropdown {
+    background-color: #512D21;
+    color: #ffffff;
+    outline: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    padding: 11px 26px;
+    font-size: 20px;
+    margin-left: 700px;
+    margin-top: 30px;
+  }
