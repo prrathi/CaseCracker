@@ -2,6 +2,46 @@ import React from 'react';
 import '../../App.css';
 import { Button } from '../Button';
 import '../Justices.css';
+import styled from 'styled-components';
+import Hero from '../Hero';
+import Dropdown from 'react-bootstrap/Dropdown';
+import JustLeans from './JustLeans';
+
+  
+
+
+const JusticeButton = styled.button`
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #512D21;
+    color: #ffffff;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+    padding: 9px 20px;
+    font-size: 17px;
+    margin: 0px 0px
+    `
+
+const JusticeLean = styled.button`
+background-color: #ffffff;
+color: #000000;
+outline: 0;
+border-radius: 5px;
+cursor: pointer;
+transition: all 0.3s ease-out;
+padding: 11px 26px;
+font-size: 20px;
+
+`
+
+const JustLean = styled.text`
+    font-size: 100px;
+    margin: 100px 100px;
+    padding-top: 100px;
+
+`
 
 function Justices() {
   return (
@@ -126,8 +166,17 @@ function Justices() {
                 </div>
             </div>
         </div>
+        <div>
+            <a href = '/JustLeans'>
+                <JusticeLean> Learn About How Each Justice Leans On Each Issue </JusticeLean>
+            </a>
+        </div>
+        
+        
     </div>
   );
 }
+
+
 
 export default Justices; 
