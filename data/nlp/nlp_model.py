@@ -78,21 +78,23 @@ def targetData(dfTarget, df):
 # run the polarity function and save as csv to reduce future computational time
 # create the corpus and save into gensim-native mm file
 
-# cols = ["Petitioner", "Respondent"]
+"""
+cols = ["Petitioner", "Respondent"]
 
-# dfOutput = pd.DataFrame(index=range(dfClean.shape[0]), columns=["Polarity"])
-# polarityCol = polarityScore(dfClean, cols)
-# dfOutput["Polarity"] = pd.Series(polarityCol)
-# dfOutput.to_csv("polarity.csv", index=False)
-# print("finished polarity")
+dfOutput = pd.DataFrame(index=range(dfClean.shape[0]), columns=["Polarity"])
+polarityCol = polarityScore(dfClean, cols)
+dfOutput["Polarity"] = pd.Series(polarityCol)
+dfOutput.to_csv("polarity.csv", index=False)
+print("finished polarity")
 
-# corpus = convertCorpus(dfClean, cols)
-# corpora.MmCorpus.serialize('./corpus.mm', corpus)
+corpus = convertCorpus(dfClean, cols)
+corpora.MmCorpus.serialize('./corpus.mm', corpus)
 
-# target, remove_index = targetData(dfTarget, dfClean)
-# dfClean.drop(remove_index, inplace=True)
-# dfClean.insert(loc=0, column='Outcome', value=target)
-# dfClean.to_csv("clean_final.csv", index=False)
+target, remove_index = targetData(dfTarget, dfClean)
+dfClean.drop(remove_index, inplace=True)
+dfClean.insert(loc=0, column='Outcome', value=target)
+dfClean.to_csv("clean_final.csv", index=False)
+"""
 
 # AFTER FIRST TIME THROUGH:
 # load files created above in for use
@@ -203,8 +205,8 @@ for num in range(100, 800, 50): # CHANGE THIS BACK TO 100, 800, 50
 # up to 68.5% accuracy (for size of 700) reached as average across splits
 
 
-"""
 # alternative to kfold is to use a training/testing split as was done for logreg and svm, 500 latent implemented below:
+"""
 
 num = 500
 lsiModel = models.LsiModel(corpus, num)
