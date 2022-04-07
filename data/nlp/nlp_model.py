@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
+from sympy import rad
 stopwords.words('english')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from datetime import date
@@ -17,12 +18,14 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
+import pickle
 
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -103,8 +106,6 @@ polarity = dfOutput.Polarity
 corpus = corpora.MmCorpus('./corpus.mm')
 actual = dfClean.Outcome
 
-logacc = []
-svmacc = []
 
 # get training and testing splits by index, map the target variable accordingly
 total_samples = np.arange(numrows)
@@ -121,10 +122,11 @@ test_actual = test_actual.values
 test_polarity = polarity[test_samples]
 test_polarity = test_polarity.values
 
-
+max_acc = 0
+best_model = ""
 # train model using training split, test using testing split, iterated from 100 to 800 latent variables
 # determine accuracy on testing split based on original target, using logistic regression and support vector machine
-"""for topic in range(100, 850, 50):
+for topic in range(100, 850, 50):
     print("number of latent variables: ", topic)
     model = models.LsiModel(corpus, num_topics = topic)
     train_dfLsi = pd.DataFrame(columns = range(topic))
@@ -136,11 +138,11 @@ test_polarity = test_polarity.values
         count += 1
     train_dfLsi = train_dfLsi.assign(Polarity = train_polarity)
     logreg = LogisticRegression()
-    # print(train_dfLsi)
-    # print(train_actual)
     logreg.fit(train_dfLsi, train_actual)
     svm = LinearSVC()
     svm.fit(train_dfLsi, train_actual)
+    clf = RandomForestClassifier()
+    clf.fit(train_dfLsi, train_actual)
     test_dfLsi = pd.DataFrame(columns = range(topic))
     count = 0
     for i in test_samples:
@@ -150,23 +152,34 @@ test_polarity = test_polarity.values
         count += 1
     test_dfLsi = test_dfLsi.assign(Polarity = test_polarity)
     acc = logreg.score(test_dfLsi, test_actual)
-    logacc.append(acc)
     print("logistic regression test accuracy: ", acc)
+    if acc > max_acc: 
+        best_model = logreg
+
     acc = svm.score(test_dfLsi, test_actual)
-    svmacc.append(acc)
     print("support vector machine test accuracy: ", acc)
+    if acc > max_acc: 
+        best_model = svm
+
+    acc = clf.score(test_dfLsi, test_actual)
+    print("random forest test accuracy: ", acc)
+    if acc > max_acc: 
+        best_model = clf
     print()
-"""
-# 66% accuracy reached at certain # like 500
+
+with open('./classify_model.pkl', 'wb') as f:
+    pickle.dump(best_model, f)
+# up to 73% accuracy reached for 800-sized random forest
 
 # use k-fold cross validation instead of the 80/20 split from above 
+"""
 dfLsi = pd.DataFrame(columns=range(100))
 for i in range(numrows):
     petitioner = [item[1] for item in model[corpus[i]]]
     respondent = [item[1] for item in model[corpus[i + numrows]]]
     dfLsi.loc[i] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
 dfLsi = dfLsi.assign(Polarity = polarity)
-
+"""
 
 # creates model with input size of num, repeatedly adding dense layers with relu activation of 2/3 previous size
 def create_model():
