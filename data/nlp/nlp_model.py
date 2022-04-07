@@ -78,21 +78,23 @@ def targetData(dfTarget, df):
 # run the polarity function and save as csv to reduce future computational time
 # create the corpus and save into gensim-native mm file
 
-# cols = ["Petitioner", "Respondent"]
+"""
+cols = ["Petitioner", "Respondent"]
 
-# dfOutput = pd.DataFrame(index=range(dfClean.shape[0]), columns=["Polarity"])
-# polarityCol = polarityScore(dfClean, cols)
-# dfOutput["Polarity"] = pd.Series(polarityCol)
-# dfOutput.to_csv("polarity.csv", index=False)
-# print("finished polarity")
+dfOutput = pd.DataFrame(index=range(dfClean.shape[0]), columns=["Polarity"])
+polarityCol = polarityScore(dfClean, cols)
+dfOutput["Polarity"] = pd.Series(polarityCol)
+dfOutput.to_csv("polarity.csv", index=False)
+print("finished polarity")
 
-# corpus = convertCorpus(dfClean, cols)
-# corpora.MmCorpus.serialize('./corpus.mm', corpus)
+corpus = convertCorpus(dfClean, cols)
+corpora.MmCorpus.serialize('./corpus.mm', corpus)
 
-# target, remove_index = targetData(dfTarget, dfClean)
-# dfClean.drop(remove_index, inplace=True)
-# dfClean.insert(loc=0, column='Outcome', value=target)
-# dfClean.to_csv("clean_final.csv", index=False)
+target, remove_index = targetData(dfTarget, dfClean)
+dfClean.drop(remove_index, inplace=True)
+dfClean.insert(loc=0, column='Outcome', value=target)
+dfClean.to_csv("clean_final.csv", index=False)
+"""
 
 # AFTER FIRST TIME THROUGH:
 # load files created above in for use
@@ -157,61 +159,78 @@ test_polarity = test_polarity.values
 """
 # 66% accuracy reached at certain # like 500
 
-
-# try a neural network with dense layers, using the 500-sized LSI model
-model = models.LsiModel(corpus, 500)
-# train_dfLsi = pd.DataFrame(columns = range(500))
-# count = 0
-# for i in train_samples:
-    # petitioner = [item[1] for item in model[corpus[i]]]
-    # respondent = [item[1] for item in model[corpus[i + numrows]]]
-    # train_dfLsi.loc[count] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
-    # count += 1
-# train_dfLsi = train_dfLsi.assign(Polarity = train_polarity)
-
-# test_dfLsi = pd.DataFrame(columns = range(500))
-# count = 0
-# for i in test_samples:
-    # petitioner = [item[1] for item in model[corpus[i]]]
-    # respondent = [item[1] for item in model[corpus[i + numrows]]]
-    # test_dfLsi.loc[count] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
-    # count += 1
-# test_dfLsi = test_dfLsi.assign(Polarity = test_polarity)
-
 # use k-fold cross validation instead of the 80/20 split from above 
-dfLsi = pd.DataFrame(columns=range(500))
+dfLsi = pd.DataFrame(columns=range(100))
 for i in range(numrows):
     petitioner = [item[1] for item in model[corpus[i]]]
     respondent = [item[1] for item in model[corpus[i + numrows]]]
     dfLsi.loc[i] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
 dfLsi = dfLsi.assign(Polarity = polarity)
 
+
+# creates model with input size of num, repeatedly adding dense layers with relu activation of 2/3 previous size
 def create_model():
-    model = Sequential()
-    model.add(Dense(501, input_dim=501, activation = 'relu'))
-    model.add(Dense(350, activation = 'relu'))
-    model.add(Dense(250, activation = 'relu'))
-    model.add(Dense(200, activation = 'relu'))
-    model.add(Dense(150, activation = 'relu'))
-    model.add(Dense(100, activation = 'relu'))
-    model.add(Dense(60, activation = 'relu'))
-    model.add(Dense(30, activation = 'relu'))
-    model.add(Dense(10, activation = 'relu'))
-    model.add(Dense(1, activation = 'sigmoid'))
-    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-    return model
+    modelNew = Sequential()
+    n = num
+    n += 1
+    modelNew.add(Dense(n, input_dim=n, activation = 'relu'))
+    n = n * 2 // 3
+    while (n > 1):
+        modelNew.add(Dense(n, activation = 'relu'))
+        n = n * 2 // 3
+    modelNew.add(Dense(1, activation = 'sigmoid'))
+    modelNew.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    return modelNew
 
-estimators = []
-estimators.append(('standardize', StandardScaler()))
-estimators.append(('mlp', KerasClassifier(build_fn=create_model, epochs=5, batch_size=1, verbose=0)))
-pipeline = Pipeline(estimators)
-kfold = StratifiedKFold(n_splits=5, shuffle=True)
-results = cross_val_score(pipeline, dfLsi, actual, cv=kfold)
-print("Accuracy and deviation: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
-# 64% accuracy
+# test the above for input size ranging from 100 to 500
+for num in range(100, 800, 50): # CHANGE THIS BACK TO 100, 800, 50
+    print()
+    print("Number of latent variable: ", num)
+    lsiModel = models.LsiModel(corpus, num)
 
-# model.fit(train_dfLsi, train_actual, epochs = 5, batch_size = 1, verbose=1)
-# model.summary()
+    dfLsi = pd.DataFrame(columns=range(num))
+    for i in range(numrows):
+        petitioner = [item[1] for item in lsiModel[corpus[i]]]
+        respondent = [item[1] for item in lsiModel[corpus[i + numrows]]]
+        dfLsi.loc[i] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
+    dfLsi = dfLsi.assign(Polarity = polarity)
 
-# score = model.evaluate(test_dfLsi, test_actual, verbose=1)
-# print(score) 
+    estimators = []
+    estimators.append(('standardize', StandardScaler()))
+    estimators.append(('mlp', KerasClassifier(build_fn=create_model, epochs=5, batch_size=20, verbose=0))) # also for size 200, tried epochs = 20
+    pipeline = Pipeline(estimators)
+    kfold = StratifiedKFold(n_splits=5, shuffle=True)
+    results = cross_val_score(pipeline, dfLsi, actual, cv=kfold)
+    print("Accuracy and deviation: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
+# up to 68.5% accuracy (for size of 700) reached as average across splits
+
+
+# alternative to kfold is to use a training/testing split as was done for logreg and svm, 500 latent implemented below:
+"""
+
+num = 500
+lsiModel = models.LsiModel(corpus, num)
+train_dfLsi = pd.DataFrame(columns = range(num))
+count = 0
+for i in train_samples:
+    petitioner = [item[1] for item in lsiModel[corpus[i]]]
+    respondent = [item[1] for item in lsiModel[corpus[i + numrows]]]
+    train_dfLsi.loc[count] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
+    count += 1
+train_dfLsi = train_dfLsi.assign(Polarity = train_polarity)
+
+test_dfLsi = pd.DataFrame(columns = range(num))
+count = 0
+for i in test_samples:
+    petitioner = [item[1] for item in model[corpus[i]]]
+    respondent = [item[1] for item in model[corpus[i + numrows]]]
+    test_dfLsi.loc[count] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
+    count += 1
+test_dfLsi = test_dfLsi.assign(Polarity = test_polarity)
+
+model = createModel()
+model.fit(train_dfLsi, train_actual, epochs = 5, batch_size = 1, verbose=1)
+model.summary()
+score = model.evaluate(test_dfLsi, test_actual, verbose=1)
+print(score) 
+"""
