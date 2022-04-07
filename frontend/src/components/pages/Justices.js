@@ -40,7 +40,7 @@ const JustLean = styled.text`
     margin: 100px 100px;
     padding-top: 100px;
 `
-
+// This is the page where users can see information on justices
 function Justices() {
   return (
     <div className='justices-container'>

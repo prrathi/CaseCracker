@@ -6,7 +6,7 @@ import '../QuizFront.css';
 import MySurvey from './surveys/surveyTypeone';
 import styled from 'styled-components';
 
-
+// Button for Quiz Start
 const QuizB = styled.button`
   padding: 8px 20px;
   border-radius: 5px;
@@ -23,7 +23,8 @@ const QuizB = styled.button`
   margin: 0px 5px
 
 `
-
+// This is the front page for the survey, where the user starts the
+// self test 
 function QuizFront() {
   return (
     <div className='quizfront-container'>

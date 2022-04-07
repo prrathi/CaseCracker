@@ -7,6 +7,7 @@ import './Hero.css';
 import styled from 'styled-components';
 
 
+// Button for "Take Quiz"
 const QuizB = styled.button`
     background-color: #ffffff;
     color: #000000;
@@ -18,7 +19,7 @@ const QuizB = styled.button`
     font-size: 20px;
 
 `
-
+// Button for "Input Transcript"
 const TranscriptButton = styled.button`
     padding: 8px 20px;
     border-radius: 5px;
@@ -37,6 +38,7 @@ const TranscriptButton = styled.button`
 `
 
 
+// The hero element is the front page large display with the justice images
 function Hero() {
   return (
     <div className='hero-container'>
@@ -46,13 +48,6 @@ function Hero() {
         </div>
     
         <div className='input-btns'>
-          {/* <Button
-            className='btns'
-            buttonStyle='btn--outline'
-            buttonSize='btn--large'
-          >
-            Input Transcript
-          </Button> */}
           <a href = '/Transcripts'>
             <TranscriptButton
             className='btns'

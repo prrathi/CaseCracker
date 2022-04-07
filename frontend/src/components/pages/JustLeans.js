@@ -16,31 +16,7 @@ margin-left: 475px;
 margin-top: 100px;
 padding-top: 100px;
 `
-
-
-// function JustLeans() {
-//     return (
-//       <div>
-//           <JustLean>
-//               Justice Leanings By Issue
-//           </JustLean>
-//           <div className = 'hero-container'>
-//           <Dropdown>
-//             <Dropdown.Toggle id="dropdown-basic">
-//                 Dropdown Button
-//             </Dropdown.Toggle>
-
-//             <Dropdown.Menu>
-//                 <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-//                 <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-//                 <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-//             </Dropdown.Menu>
-//           </Dropdown>
-//           </div>
-//       </div>
-//     );
-//   }
-
+// Justice Leaning Page
 class JustLeans extends React.Component 
 {
     options = {

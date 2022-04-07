@@ -4,7 +4,8 @@ import { Button } from '../Button';
 import image from '../scotus_images.png';
 import '../Transcript.css';
 
-
+// This is the class for the Transcript Page, where the user
+// inputs the transcript to parse through the nlp model
 function Transcript() {
   return (
     <div className='transcript-container'>
