@@ -15,14 +15,21 @@ defaultThemeColors["$body-container-background-color"] = "#f8f8f8"
 Survey
     .StylesManager
     .applyTheme();
+
+function onComplete(result) {
+    console.log("Complete! " + result);
+    // window.location.href = "./About";
+}
+
+  
 const mySurvey =  ()=>{
     return (
-        <div className='surveyContainer'>
             <Survey.Survey 
             json={json}
+            onComplete={onComplete}
         />
-        </div>
         
     )
 }
+
 export default mySurvey;

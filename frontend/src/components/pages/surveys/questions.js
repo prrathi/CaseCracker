@@ -1,6 +1,7 @@
 
 export const json = 
 {
+    "completedHtml": "<h3>Thank you for your feedback.</h3> <h5>Your thoughts and ideas will help us to create a great product!</h5>",
     "title": "Political Leaning Self-Test",
     "logoPosition": "right",
     "pages": [
