@@ -9,7 +9,7 @@ import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 
-
+//styling
 const JustLean = styled.text`
 font-size: 60px;
 margin-left: 475px;
@@ -41,6 +41,7 @@ padding-top: 100px;
 //     );
 //   }
 
+//dropdown component
 class JustLeans extends React.Component 
 {
     options = {
@@ -64,6 +65,4 @@ class JustLeans extends React.Component
         );
     }
 }
-
-
 export default JustLeans;
