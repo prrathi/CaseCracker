@@ -9,7 +9,7 @@ import JustLeans from './JustLeans';
 
   
 
-
+//styling for the button
 const JusticeButton = styled.button`
     border-radius: 5px;
     outline: none;
@@ -24,6 +24,7 @@ const JusticeButton = styled.button`
     margin: 0px 0px
 `
 
+//styling for the button
 const JusticeLean = styled.button`
 background-color: #ffffff;
 color: #000000;
@@ -34,19 +35,21 @@ transition: all 0.3s ease-out;
 padding: 11px 26px;
 font-size: 20px;
 `
-
+//styiling for the button
 const JustLean = styled.text`
     font-size: 100px;
     margin: 100px 100px;
     padding-top: 100px;
 `
-
+// This is the page where users can see information on justices
 function Justices() {
   return (
     <div className='justices-container'>
+        {/* header */}
         <h1>Current Justices</h1>
         <div className="grid-container">
             <div className="grid-item">
+                {/* all the buttons on the page */}
                 <img src="./images/john_roberts.png" height={150} width={150}></img>
                 <div className="rightSide">
                     <p>John Roberts</p>

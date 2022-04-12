@@ -6,7 +6,7 @@ import '../QuizFront.css';
 import MySurvey from './surveys/surveyTypeone';
 import styled from 'styled-components';
 
-
+// Button for Quiz Start
 const QuizB = styled.button`
   padding: 8px 20px;
   border-radius: 5px;
@@ -23,7 +23,8 @@ const QuizB = styled.button`
   margin: 0px 5px
 
 `
-
+// This is the front page for the survey, where the user starts the
+// self test 
 function QuizFront() {
   return (
     <div className='quizfront-container'>
@@ -32,10 +33,8 @@ function QuizFront() {
       </div>
 
       <div className='quizfrontsmallbox'>
-        <p>JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi 
-        JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi JayaPraneethRathi </p>
+        <p> This survey contains a series of questions about your own political leaning. You will be given a list of statements and 
+          you must select whether you agree or disagree. </p>
       </div>
 
       <div className='quizfront-btns'>
@@ -46,7 +45,7 @@ function QuizFront() {
           >
             Begin Quiz
           </QuizButton> */}
-          <a href = "https://www.google.com/search?q=jayapraneetrathi&rlz=1C5CHFA_enUS966US975&oq=jayapraneetrathi&aqs=chrome..69i57j0i546l4.3998j0j7&sourceid=chrome&ie=UTF-8">
+          <a href = './Survey'>
             <QuizB> Begin Quiz </QuizB>
           </a>
         </div>

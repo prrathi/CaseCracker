@@ -4,6 +4,9 @@ import { QuizButton } from './QuizButton';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
+
+// This is defining a class for the Navigation bar at the
+// Top of the App.
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);

@@ -5,6 +5,8 @@ const STYLES = ['btn--primary', 'btn--outline']
 
 const SIZES = ['btn--medium', 'btn--large'];
 
+
+// This creates a class for the Button for TakeQuiz
 export const QuizButton =
  ({children, type, onClick, buttonStyle, buttonSize}) => {
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle: STYLES[0];

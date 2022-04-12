@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App.css';
 import '../About.css';
 
+// About Page
 function About() {
   return (
     <div className='about-container'>
