@@ -43,6 +43,19 @@ font-size: 30px;
 text-align: right;
 `
 
+const LearnMore = styled.button`
+background-color: #512D21;
+color: #ffffff;
+    outline: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    padding: 11px 26px;
+    font-size: 20px;
+    button-align: center;
+
+`
+
 function SurveyResult() {
   return (
     <div className='surveyresults-container'>
@@ -56,12 +69,18 @@ function SurveyResult() {
                 <MostSimilar> The Justice Most Similar to You is</MostSimilar> 
                 <JusticeName> STEPHEN BREYER</JusticeName>
                 <JusticeName> (1994 - Present)</JusticeName>
-                <div className='smallLeftBox'> 
-                  <SimilarAreas> Similar Issue Areas: </SimilarAreas> 
-                  <SimilarAreas> • Criminal Procedures</SimilarAreas>
-                  <SimilarAreas> • State Rights</SimilarAreas>
-            
+                <div className='midJusticeBox'>
+                  <div className='smallLeftBox'> 
+                    <SimilarAreas> Similar Issue Areas: </SimilarAreas> 
+                    <SimilarAreas> • Criminal Procedures</SimilarAreas>
+                    <SimilarAreas> • State Rights</SimilarAreas>
+              
+                  </div>
+                  <div className='smallRightBox'>
+                      <LearnMore className='btns' buttonStyle='btn--outline' buttonSize='btn--large'> Learn More </LearnMore>
+                  </div>
                 </div>
+                
                 
             </div>
             

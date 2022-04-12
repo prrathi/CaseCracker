@@ -77,10 +77,10 @@
     float: center;
     width: 50%;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    /* border: 1px solid green; */
   }
 
   .smallLeftBox {
@@ -88,8 +88,28 @@
     width: 50%;
     display: flex;
     flex-wrap: wrap;
-    padding-left: 100px;
+    padding-left: 150px;
     padding-top: 50px;
+    align-items: right;
+    /* border: 1px solid green; */
+  }
+
+  .smallRightBox {
+    width: 50%;
+    display: flex;
+
+    /* border: 1px solid green; */
+    flex-wrap: wrap;
+    align-items: left;
+    padding-left: 50px;
+    padding-top: 100px;
+  }
+
+  .midJusticeBox {
+    width: 100%;
+    flex-direction: row;
+    float: center;
+
   }
 
 
