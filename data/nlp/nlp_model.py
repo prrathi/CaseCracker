@@ -126,6 +126,7 @@ max_acc = 0
 best_model = ""
 # train model using training split, test using testing split, iterated from 100 to 800 latent variables
 # determine accuracy on testing split based on original target, using logistic regression and support vector machine
+
 for topic in range(100, 850, 50):
     print("number of latent variables: ", topic)
     model = models.LsiModel(corpus, num_topics = topic)
@@ -167,8 +168,6 @@ for topic in range(100, 850, 50):
         best_model = clf
     print()
 
-with open('./classify_model.pkl', 'wb') as f:
-    pickle.dump(best_model, f)
 # up to 73% accuracy reached for 800-sized random forest
 
 # use k-fold cross validation instead of the 80/20 split from above 
@@ -196,6 +195,7 @@ def create_model():
     return modelNew
 
 # test the above for input size ranging from 100 to 500
+
 for num in range(100, 800, 50): # CHANGE THIS BACK TO 100, 800, 50
     print()
     print("Number of latent variable: ", num)
@@ -214,13 +214,12 @@ for num in range(100, 800, 50): # CHANGE THIS BACK TO 100, 800, 50
     pipeline = Pipeline(estimators)
     kfold = StratifiedKFold(n_splits=5, shuffle=True)
     results = cross_val_score(pipeline, dfLsi, actual, cv=kfold)
-    print("Accuracy and deviation: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
+    print("Accuracy and deviation: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100)) 
 # up to 68.5% accuracy (for size of 700) reached as average across splits
 
 
 # alternative to kfold is to use a training/testing split as was done for logreg and svm, 500 latent implemented below:
 """
-
 num = 500
 lsiModel = models.LsiModel(corpus, num)
 train_dfLsi = pd.DataFrame(columns = range(num))
@@ -247,3 +246,19 @@ model.summary()
 score = model.evaluate(test_dfLsi, test_actual, verbose=1)
 print(score) 
 """
+
+# final classification model trained on the complete dataaset with the best accuracy
+model = models.LsiModel(corpus, num_topics = 800)
+dfLsi = pd.DataFrame(columns = range(800))
+count = 0
+for i in range(numrows):
+    petitioner = [item[1] for item in model[corpus[i]]]
+    respondent = [item[1] for item in model[corpus[i + numrows]]]
+    dfLsi.loc[count] = [petitioner[i] - respondent[i] for i in range(len(petitioner))]
+    count += 1
+dfLsi = dfLsi.assign(Polarity = polarity)
+clf = RandomForestClassifier()
+clf.fit(dfLsi, actual)
+
+with open('./classify_model.pkl', 'wb') as f:
+    pickle.dump(clf, f)
