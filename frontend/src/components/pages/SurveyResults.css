@@ -74,12 +74,22 @@
   }
 
   .rightfirstJusticebox {
-    float: right;
+    float: center;
     width: 50%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+  }
+
+  .smallLeftBox {
+    float: left;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 100px;
+    padding-top: 50px;
   }
 
 
