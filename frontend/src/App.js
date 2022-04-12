@@ -9,6 +9,7 @@ import Justices from './components/pages/Justices';
 import JustLeans from './components/pages/JustLeans';
 import mySurvey from './components/pages/surveys/surveyTypeone';
 import SurveyPage from './components/pages/SurveyPage';
+import SurveyResult from './components/pages/SurveyResults';
 
 // Main Application 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/Justices' element={<Justices/>}></Route> 
         <Route path='/JustLeans' element={<JustLeans/>}></Route> 
         <Route path='/Survey' element={<SurveyPage />}></Route>
+        <Route path='/SurveyResults' element={<SurveyResult />}></Route>
       </Routes>
       </Router>
 

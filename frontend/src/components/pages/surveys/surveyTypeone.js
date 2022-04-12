@@ -16,9 +16,12 @@ Survey
     .StylesManager
     .applyTheme();
 
-function onComplete(result) {
-    console.log("Complete! " + result);
-    // window.location.href = "./About";
+function onComplete(result, sender) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "YourServiceForStoringSurveyResultsAsJSON_URL");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    xhr.send(JSON.stringify(sender.data));
+    window.location.href = "./SurveyResults";
 }
 
   
