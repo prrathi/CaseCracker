@@ -3,10 +3,10 @@ import '../../App.css';
 import { Button } from '../Button';
 import '../Justices.css';
 import styled from 'styled-components';
-import Hero from '../Hero';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+// import Hero from '../Hero';
+// import Dropdown from 'react-bootstrap/Dropdown';
+// import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
+// import DropdownButton from 'react-bootstrap/DropdownButton';
 
 
 //styling
@@ -27,7 +27,7 @@ class JustLeans extends React.Component
 
     render() {
         return(
-            <div>
+            <div classname = 'about-container'>
                 <JustLean>
                     Justice Leanings By Issue
                 </JustLean>

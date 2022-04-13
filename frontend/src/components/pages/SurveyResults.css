@@ -1,0 +1,115 @@
+.surveyresults-container {
+    /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
+    /* margin-top: 165px;
+    height: 100vh;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /*align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(255, 252, 252, 0.2);
+    object-fit: contain; */
+
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 0 1000px rgba(255, 252, 252, 0.2);
+    object-fit: contain;
+    font-family: 'Montserrat';
+  }
+  
+  .surveyresults-container > h1 {
+    color: rgb(0, 0, 0);
+    width: 600px;
+    height: 300px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .surveyresults-container > p {
+    /* margin-top: 8px; */
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .surveyresults-btns {
+    margin-top: 5px;
+  }
+  
+  .surveyresults-btns .btn {
+    margin: 6px;
+  }
+  
+  
+  .surveyresultsbox {
+    width: 600px;
+    height: 90px;
+    margin: 5px;
+    float: left;
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .surveyresultssmallbox {
+    width: 600px;
+    height: 90px;
+    margin: 10px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .firstjusticebox {
+    width: 100%;
+    padding-top: 50px;
+  }
+
+  .leftfirstJusticebox {
+    float:left;
+    width: 40%;
+    display: flex;
+    justify-content: right;
+  }
+
+  .rightfirstJusticebox {
+    float: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    /* border: 1px solid green; */
+  }
+
+  .smallLeftBox {
+    float: left;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 150px;
+    padding-top: 50px;
+    align-items: right;
+    /* border: 1px solid green; */
+  }
+
+  .smallRightBox {
+    width: 50%;
+    display: flex;
+
+    /* border: 1px solid green; */
+    flex-wrap: wrap;
+    align-items: left;
+    padding-left: 50px;
+    padding-top: 100px;
+  }
+
+  .midJusticeBox {
+    width: 100%;
+    flex-direction: row;
+    float: center;
+
+  }
+
+
