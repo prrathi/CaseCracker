@@ -4,19 +4,32 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import csv
 
-justice_dict = pd.read_csv("/Users/jamesxie/Desktop/course-project-kk-b/data/user_classification/justice_dict.csv")
-# Function to find the average leaning for each 
-# Each issue area will have 3 questions, stored in a list "responses"
-# Return type: list of ints
+justice_dict = pd.read_csv("./backend/justice_dictionary.csv")
+df = pd.read_csv("./backend/justice_leanings_final.csv")
+df1 = df.values
+questionCount = [3, 3, 3, 3, 3, 1, 2]
+issueAreas = {"Criminal Procedure", "Civil Rights", "First Amendment", "Due Process", "Privacy", "Attorneys", "Economic Activity"}
+# Assumption: There are 18 total questions, with the number of questions per issue area stored in question Count. 
+
+# STEPS ON HOW THIS WORKS
+# User data is sent, we take the issue average for the user's responses.
+
+
+
+# Updated Function to find Issue Average for each of the updated issue areas from final survey.
+# See classify.py for original documentation
 def findIssueAvg(responses):
     sumPerArea = []
-    lengthResponse = int(len(responses)/3)
-    for i in range(lengthResponse):
+    # lengthResponse = int(len(responses)/3)
+    count = 0
+    for i in range(len(questionCount)):
         sum = 0
-        for j in range(3):
-            sum += responses[(3 * i) + j]
-        sumPerArea.append(round(sum/3.0, 2))
+        for j in range(questionCount[i]):
+            sum += responses[count]
+            count += 1
+        sumPerArea.append(round(sum/questionCount[i], 2))
     return sumPerArea
+
 
 # Function to compare user averages to each justices
 # userAvg is a 1d array with the average user political leaning for each issueArea
@@ -42,10 +55,10 @@ def distance(userAvg, targetJustice):
 # userAvg is a 1d list with the average user political leaning for each issueArea
 # justices is a 2d list with each row corresponding to each justice
 # return type: int index representing the ID of the closest justice
-def findClosestJustice(userAvg, justices):
+def findClosestJustice(userAvg):
     distances = []
-    for i in range(len(justices)):
-        distances.append(distance(userAvg, justices[i]))
+    for i in range(len(df1)):
+        distances.append(distance(userAvg, df1[i]))
     
     minimumDistance = distances[0]
     minJudge = 0
@@ -54,7 +67,7 @@ def findClosestJustice(userAvg, justices):
             minimumDistance = distances[i]
             minJudge = i
     
-    return minJudge + 78
+    return minJudge
 
 # Function to find the closest cluster for each issue area compared to the user input
 # centroids is a 2d list where each row is a different issue area
@@ -72,23 +85,20 @@ def findClosestCentroid(userAvg, centroids):
         clusters.append(minIndex)
     return clusters
 
-def findJusticeName(justiceID):
-    print (justice_dict.head())
-    return(justice_dict.iat[justiceID,1])
 
 
 # Example method to use main
 def main():
     # Import Dataframe
-    df = pd.read_csv("/Users/jamesxie/Desktop/course-project-kk-b/data/user_classification/justice_leanings.csv")
+    # df = pd.read_csv("/Users/jamesxie/Desktop/course-project-kk-b/data/user_classification/justice_leanings.csv")
     
-    df.drop(columns=df.columns[0],  
-        axis=1, 
-        inplace=True)
-    selfResponses = [1, 1.5, 2, 1, 1, 1, 2, 2, 2, 1, 1.2, 1.4, 2, 1.5, 1.75, 1.5, 1.25, 1, 1, 1, 1, 2, 2, 2, 1.5, 1.5, 1.5, 1.1, 1.0, 1.2, 1.5, 1.6, 1.7, 2, 2, 2, 1.2, 1.4, 1.6, 1.5, 1, 2]
+    # df.drop(columns=df.columns[0],  
+    #     axis=1, 
+    #     inplace=True)
+    selfResponses = [1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1]
     issueAverages = findIssueAvg(selfResponses)
-    closestJustice = findClosestJustice(issueAverages, df.values)
-    print(findJusticeName(closestJustice))
+    closestJustice = findClosestJustice(issueAverages)
+    print(closestJustice)
     
     
     
