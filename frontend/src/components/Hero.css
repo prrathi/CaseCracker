@@ -67,6 +67,8 @@
   transition: all 0.3s ease-out;
   padding: 11px 26px;
   font-size: 20px;
-  margin-left: 700px;
+  display: inline-flex;
+  flex-direction: column;
+  object-fit: contain;
   margin-top: 30px;
 }
