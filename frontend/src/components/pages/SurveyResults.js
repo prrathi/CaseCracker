@@ -77,7 +77,63 @@ function SurveyResult() {
               
                   </div>
                   <div className='smallRightBox'>
+                    <a href = 'https://en.wikipedia.org/wiki/Stephen_Breyer'>
                       <LearnMore className='btns' buttonStyle='btn--outline' buttonSize='btn--large'> Learn More </LearnMore>
+                    </a>
+                      
+                  </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <JustLean> ALSO SIMILAR TO YOU</JustLean> 
+        <div className='firstjusticebox'> 
+            <div className='leftfirstJusticebox'>
+                <img src="./images/ruth_bader_ginsburg.png" height={400} width={325} />
+            </div>
+            <div className='rightfirstJusticebox'>
+                <JusticeName> RUTH BADER GINSBURG</JusticeName>
+                <JusticeName> (1993 - 2020)</JusticeName>
+                <div className='midJusticeBox'>
+                  <div className='smallLeftBox'> 
+                    <SimilarAreas> Similar Issue Areas: </SimilarAreas> 
+                    <SimilarAreas> • Civil Rights </SimilarAreas>
+                    <SimilarAreas> • First Amendment </SimilarAreas>
+              
+                  </div>
+                  <div className='smallRightBox'>
+                  <a href = 'https://en.wikipedia.org/wiki/Ruth_Bader_Ginsburg'>
+                      <LearnMore className='btns' buttonStyle='btn--outline' buttonSize='btn--large'> Learn More </LearnMore>
+                    </a>
+                     
+                  </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <div className='firstjusticebox'> 
+            <div className='leftfirstJusticebox'>
+                <img src="./images/sonia_sotomayor_highres.png" height={400} width={325} />
+            </div>
+            <div className='rightfirstJusticebox'>
+                <JusticeName> SONIA SOTOMAYOR</JusticeName>
+                <JusticeName> (2009 - Present)</JusticeName>
+                <div className='midJusticeBox'>
+                  <div className='smallLeftBox'> 
+                    <SimilarAreas> Similar Issue Areas: </SimilarAreas> 
+                    <SimilarAreas> • Criminal Procedures</SimilarAreas>
+                    <SimilarAreas> • Economic Rights</SimilarAreas>
+              
+                  </div>
+                  <div className='smallRightBox'>
+                  <a href = 'https://en.wikipedia.org/wiki/Sonia_Sotomayor'>
+                      <LearnMore className='btns' buttonStyle='btn--outline' buttonSize='btn--large'> Learn More </LearnMore>
+                    </a>
+                    
                   </div>
                 </div>
                 
