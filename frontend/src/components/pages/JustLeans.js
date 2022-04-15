@@ -17,48 +17,8 @@ flex-direction: column;
 align-items: center;
 `
 // Justice Leaning Page
-
-
-// const JustLeans = () => {
-//     options = {
-//         myarray:["Select Issue","Criminal Procedure", "Civil Rights", "First Amendment", 
-//         "Due Process", "Privacy", "Attorneys", "Unions", "Economic Activity", "Judicial Power",
-//     "Federalism", "Private Action"]}
-//     //render() {
-//             const [value, setValue] = React.useState('fruit');
-  
-//             const handleChange = (event) => {
-//             setValue(event.target.value);
-//             };
-        
-//         return(
-//             <div classname = 'about-container'>
-//                 <JustLean>
-//                     Justice Leanings By Issue
-//                 </JustLean>
-//                 <select className = 'dropdown'>
-//                     {this.options.myarray.map(data =>(
-//                         <option title = {data} value = {data}>
-//                         </option>
-//                     ))}
-//                 </select>
-                
-//                 {/* <label>
-//         <select className = 'dropdown'>
-//           <option value="fruit">Fruit</option>
-//           <option value="vegetable">Vegetable</option>
-//           <option value="meat">Meat</option>
-//         </select>
-//       </label> */}
-//       <JustLean> {value} </JustLean>
-//             </div>
-//         );
-//     //}
-// };
-// export default JustLeans;
-
-
 const JustLeans = () => {
+    //options to dropdown and value associated with them
     const options = [
         { label: 'Select Issue', value: "./images/download.png" },
         { label: 'Criminal Procedure', value: "./images/Criminal_Procedure.png" },
@@ -74,17 +34,22 @@ const JustLeans = () => {
         // { label: 'Private Action', value: "./images/clarence_thomas.png" },
       ];
 
+      //sets state of react page
     const [value, setValue] = React.useState("./images/download.png");
-  
+
+    //handles when dropdown value is changed
     const handleChange = (event) => {
       setValue(event.target.value);
     };
-  
+
+    //displays page
     return (
       <div classname = 'justices-container'>
+          {/* title of page */}
         <JustLean>
             Justice Leanings By Issue
         </JustLean>
+        {/* dropdown component */}
         <div className = 'dropdownbutton'>
             <Dropdown
             options={options}
@@ -92,6 +57,7 @@ const JustLeans = () => {
             onChange={handleChange}
             />
         </div>
+        {/* displays page */}
         <div className = 'picture'>
             <img src={value} height={550} width={900}></img>
         </div>
@@ -103,20 +69,8 @@ const JustLeans = () => {
 
   
 
-
+//dropdown component
 const Dropdown = ({value, options, onChange }) => {
-    return (
-      <label>
-        <select className = 'dropdown' value={value} onChange={onChange}>
-          {options.map((option) => (
-            <option value={option.value}>{option.label}</option>
-          ))}
-        </select>
-      </label>
-    );
-  };
-
-  const Image = ({value, options, onChange }) => {
     return (
       <label>
         <select className = 'dropdown' value={value} onChange={onChange}>
