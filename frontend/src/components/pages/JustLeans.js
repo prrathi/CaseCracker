@@ -12,9 +12,9 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 //styling
 const JustLean = styled.text`
 font-size: 60px;
-margin-left: 475px;
-margin-top: 100px;
-padding-top: 100px;
+display: flex;
+flex-direction: column;
+align-items: center;
 `
 // Justice Leaning Page
 
