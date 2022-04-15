@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import csv
 
-justice_dict = pd.read_csv("./backend/justice_dictionary.csv")
+justice_dict = pd.read_csv("justice_dictionary.csv")
 justice_names = justice_dict["justice"]
-df = pd.read_csv("./backend/justice_leanings_final.csv")
+df = pd.read_csv("justice_leanings_final.csv")
 df1 = df.values
 questionCount = [3, 3, 3, 3, 3, 1, 2]
 issueAreas = ["Criminal Procedure", "Civil Rights", "First Amendment", "Due Process", "Privacy", "Attorneys", "Economic Activity"]
