@@ -60,7 +60,7 @@ padding-top: 100px;
 
 const JustLeans = () => {
     const options = [
-        { label: 'Select Issue', value: "./images/Criminal_Procedure.png" },
+        { label: 'Select Issue', value: "./images/download.png" },
         { label: 'Criminal Procedure', value: "./images/Criminal_Procedure.png" },
         { label: 'Civil Rights', value: "./images/Civil_Rights.png"  },
         { label: 'First Amendment', value: "./images/First_Amendment.png" },
@@ -74,26 +74,30 @@ const JustLeans = () => {
         // { label: 'Private Action', value: "./images/clarence_thomas.png" },
       ];
 
-    const [value, setValue] = React.useState("./images/Criminal_Procedure.png");
+    const [value, setValue] = React.useState("./images/download.png");
   
     const handleChange = (event) => {
       setValue(event.target.value);
     };
   
     return (
-      <div classname = 'about-container'>
+      <div classname = 'justices-container'>
         <JustLean>
             Justice Leanings By Issue
         </JustLean>
-       <Dropdown
-
-        options={options}
-        value={value}
-        onChange={handleChange}
-      />
-  
-        <img src={value}></img>
+        <div className = 'dropdownbutton'>
+            <Dropdown
+            options={options}
+            value={value}
+            onChange={handleChange}
+            />
+        </div>
+        <div className = 'picture'>
+            <img src={value} height={550} width={900}></img>
+        </div>
+        
       </div>
+
     );
   };
 
@@ -101,6 +105,18 @@ const JustLeans = () => {
 
 
 const Dropdown = ({value, options, onChange }) => {
+    return (
+      <label>
+        <select className = 'dropdown' value={value} onChange={onChange}>
+          {options.map((option) => (
+            <option value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </label>
+    );
+  };
+
+  const Image = ({value, options, onChange }) => {
     return (
       <label>
         <select className = 'dropdown' value={value} onChange={onChange}>
