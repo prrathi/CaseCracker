@@ -49,3 +49,22 @@
   .rightSide {
     margin-left: 2%;
   }
+
+  .dropdownbutton {
+    /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
+    display: flex;
+    flex-direction: column;
+    object-fit: contain;
+    font-family: 'Montserrat';
+    align-items: center;
+  }
+
+  .picture {
+    /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    object-fit: contain;
+    font-family: 'Montserrat';
+    align-items: center;
+  }
