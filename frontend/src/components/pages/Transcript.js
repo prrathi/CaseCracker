@@ -119,7 +119,7 @@ class Transcript extends React.Component {
       media = (
         <div>
           {" "}
-          <p>prathinav merneedi, good job on mathcounts</p>{" "}
+          <p>JAYAPRANEETH RATHI LOST A SWIMMING RACE TO A GUY WITH ONE LEG</p>{" "}
         </div>
       );
     }
