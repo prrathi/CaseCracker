@@ -38,10 +38,13 @@ def survey():
 """
 Transcript endpoint
 """
-@app.route('/transcript', methods=['GET', 'POST'])
+@app.route('/Transcripts', methods=['GET', 'POST'])
 def transcript():
-    petitioner = request.form.get("petitionerValue")
-    respondent = request.form.get("respondentValue")
-    if (petitioner == "Sai" and respondent == "Merneedi"):
-        return {'result': 'no its prathinav'}
+    print(request)
+    # petitioner = request.json["petitionerValue"]
+    # respondent = request.json["respondentValue"]
+    # print(petitioner)
+    # print(respondent)
+    # if (petitioner == "Sai" and respondent == "Merneedi"):
+        # return {'result': 'no its prathinav'}
     return {'result': 'tbd'}

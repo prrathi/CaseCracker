@@ -51,13 +51,14 @@ class Transcript extends React.Component {
 
   handleSubmit() {
     console.log("here");
-    fetch('/transcript', {
-    method: "POST",
-    body: JSON.stringify({
-    respondentValue: this.state.respondentValue,
-    petitionerValue: this.state.petitionerValue
-    })
-    }).then(response => response.json().then(data => {this.handleResetText(data.result)}));
+    const options = {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+      respondentValue: this.state.respondentValue,
+      petitionerValue: this.state.petitionerValue
+      })};
+    fetch('http://localhost:5000/Transcripts',{ data: options}).then(response => response.json().then(data => {this.handleResetText(data.result)}));
   }
 
   render() {
@@ -106,7 +107,7 @@ class Transcript extends React.Component {
       if (petText !== "" && resText !== "") {
         button = (
           <div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} method = "post" >
               <input
                 type="submit"
                 className="w3-button w3-blue"
