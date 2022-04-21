@@ -1,13 +1,17 @@
 from urllib import response
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
 import functions
 
 import json
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Access-Control-Allow-Origin'
 
 
 @app.route('/')
+@cross_origin()
 def hello():
     return 'Hello, World!'
 
@@ -16,6 +20,7 @@ def hello():
 Survey endpoint
 """
 @app.route('/survey', methods=['POST'])
+@cross_origin()
 def survey():
 
     responseValues = []
