@@ -6,7 +6,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
-from sympy import rad
 stopwords.words('english')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from datetime import date
