@@ -26,7 +26,7 @@ function App() {
         <Route path='/Justices' element={<Justices/>}></Route> 
         <Route path='/JustLeans' element={<JustLeans/>}></Route> 
         <Route path='/Survey' element={<SurveyPage />}></Route>
-        <Route path='/SurveyResults' element={<SurveyResult />}></Route>
+        <Route exact path='/SurveyResults' element={<SurveyResult />}></Route>
       </Routes>
       </Router>
 
