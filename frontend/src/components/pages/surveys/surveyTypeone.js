@@ -3,7 +3,7 @@ import 'survey-react/survey.css';
 import * as Survey from 'survey-react';
 import {json} from '../surveys/questions'
 import fetch from 'node-fetch';
-import {withRouter} from "react-router-dom";
+
 var defaultThemeColors = Survey
     .StylesManager
     .ThemeColors["default"];
@@ -48,14 +48,13 @@ function onComplete(sender, result) {
         body: JSON.stringify(jsonBody),
 	    headers: {'Content-Type': 'application/json'}
     }).then(res => res.json())
-    .then(json => sessionStorage.setItem("first", JSON.stringify(json)))
+    .then(json => console.log(json))
 
     // var xhr = new XMLHttpRequest();
     // xhr.open("POST", "YourServiceForStoringSurveyResultsAsJSON_URL");
     // xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
     // xhr.send(JSON.stringify(sender.data));
-    
-    window.location.href = "./SurveyResults";
+    // window.location.href = "./SurveyResults";
 }
 
   

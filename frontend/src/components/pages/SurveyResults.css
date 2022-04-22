@@ -91,7 +91,6 @@
     padding-left: 150px;
     padding-top: 50px;
     align-items: right;
-
     /* border: 1px solid green; */
   }
 
@@ -103,7 +102,7 @@
     flex-wrap: wrap;
     align-items: left;
     padding-left: 50px;
-
+    padding-top: 100px;
   }
 
   .midJusticeBox {
