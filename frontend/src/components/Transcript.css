@@ -52,3 +52,12 @@
     font-size: 15px;
     text-align: center;
   }
+
+  .transcriptsmallbox {
+    display: flex;
+    flex-direction: column;
+    object-fit: contain;
+    font-family: 'Montserrat';
+    align-items: center;
+  }
+

@@ -72,3 +72,18 @@
   object-fit: contain;
   margin-top: 30px;
 }
+
+.uploadbutton {
+  background-color: #512D21;
+  color: #ffffff;
+  outline: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  padding: 11px 26px;
+  font-size: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  object-fit: contain;
+  margin-top: 30px;
+}
