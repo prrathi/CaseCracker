@@ -38,9 +38,10 @@ font-size: 30px;
 text-align: center;
 `
 
-const similarText = styled.text `
+const SimilarText = styled.text `
 font-size: 30px;
-text-align: right;
+text-align: center;
+margin-right: 30px;
 `
 
 const LearnMore = styled.button`
@@ -55,6 +56,7 @@ color: #ffffff;
     button-align: center;
 
 `
+var data = JSON.parse(sessionStorage.getItem("first"))["justices"];
 
 function SurveyResult() {
   return (
@@ -67,13 +69,12 @@ function SurveyResult() {
             </div>
             <div className='rightfirstJusticebox'>
                 <MostSimilar> The Justice Most Similar to You is</MostSimilar> 
-                <JusticeName> STEPHEN BREYER</JusticeName>
-                <JusticeName> (1994 - Present)</JusticeName>
+                <JusticeName> {data[0][0]} </JusticeName>
                 <div className='midJusticeBox'>
                   <div className='smallLeftBox'> 
                     <SimilarAreas> Similar Issue Areas: </SimilarAreas> 
-                    <SimilarAreas> • Criminal Procedures</SimilarAreas>
-                    <SimilarAreas> • State Rights</SimilarAreas>
+                    <SimilarText> • {data[0][1]} </SimilarText>
+                    <SimilarText> • {data[0][2]}</SimilarText>
               
                   </div>
                   <div className='smallRightBox'>
@@ -94,13 +95,12 @@ function SurveyResult() {
                 <img src="./images/ruth_bader_ginsburg.png" height={400} width={325} />
             </div>
             <div className='rightfirstJusticebox'>
-                <JusticeName> RUTH BADER GINSBURG</JusticeName>
-                <JusticeName> (1993 - 2020)</JusticeName>
+                <JusticeName> {data[1][0]} </JusticeName>
                 <div className='midJusticeBox'>
                   <div className='smallLeftBox'> 
                     <SimilarAreas> Similar Issue Areas: </SimilarAreas> 
-                    <SimilarAreas> • Civil Rights </SimilarAreas>
-                    <SimilarAreas> • First Amendment </SimilarAreas>
+                    <SimilarText> • {data[1][1]} </SimilarText>
+                    <SimilarText> • {data[1][2]} </SimilarText>
               
                   </div>
                   <div className='smallRightBox'>
@@ -120,13 +120,12 @@ function SurveyResult() {
                 <img src="./images/sonia_sotomayor_highres.png" height={400} width={325} />
             </div>
             <div className='rightfirstJusticebox'>
-                <JusticeName> SONIA SOTOMAYOR</JusticeName>
-                <JusticeName> (2009 - Present)</JusticeName>
+                <JusticeName> {data[2][0]} </JusticeName>
                 <div className='midJusticeBox'>
                   <div className='smallLeftBox'> 
                     <SimilarAreas> Similar Issue Areas: </SimilarAreas> 
-                    <SimilarAreas> • Criminal Procedures</SimilarAreas>
-                    <SimilarAreas> • Economic Rights</SimilarAreas>
+                    <SimilarText> • {data[2][1]} </SimilarText>
+                    <SimilarText> • {data[2][2]} </SimilarText>
               
                   </div>
                   <div className='smallRightBox'>

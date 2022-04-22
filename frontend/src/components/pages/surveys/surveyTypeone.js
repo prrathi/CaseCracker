@@ -48,8 +48,8 @@ function onComplete(sender, result) {
         body: JSON.stringify(jsonBody),
 	    headers: {'Content-Type': 'application/json'}
     }).then(res => res.json())
-    .then(json => console.log(json))
-
+    .then(json => sessionStorage.setItem("first", JSON.stringify(json)))
+    window.location.href = "./SurveyResults";
     // var xhr = new XMLHttpRequest();
     // xhr.open("POST", "YourServiceForStoringSurveyResultsAsJSON_URL");
     // xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
