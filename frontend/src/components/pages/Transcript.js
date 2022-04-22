@@ -1,12 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import "../../App.css";
 import { Button } from "../Button";
 import "../Transcript.css";
+import ReactDOM from "react-dom";
+import Upload from "./Upload.js";
 // import {Flex} from 'react-spectrum';
 
 // This is the class for the Transcript Page, where the user
 // inputs the transcript to parse through the nlp model
+
+
 class Transcript extends React.Component {
+  handleFileUpload = event => {
+    console.log(event.target.files[0].name);
+  };
+
   constructor(props) {
     super(props);
     this.handleTextClick = this.handleTextClick.bind(this);
@@ -119,8 +127,8 @@ class Transcript extends React.Component {
     } else if (click === 2) {
       media = (
         <div>
-          {" "}
-          <p>JAYAPRANEETH RATHI LOST A SWIMMING RACE TO A GUY WITH ONE LEG</p>{" "}
+          
+
         </div>
       );
     }
@@ -146,14 +154,30 @@ class Transcript extends React.Component {
           >
             Insert Text
           </Button>
-          <Button
+          {/* <Button
             className="btn"
             buttonStyle="btn--outline"
             buttonSize="btn--large"
             onClick={this.handleFileClick}
           >
             Upload File
-          </Button>
+          </Button> */}
+          <React.Fragment
+          
+          >
+          <input
+            ref="fileInput"
+            onChange={this.handleFileUpload}
+            type="file"
+            style={{ display: "none" }}
+            // multiple={false}
+          />
+          <button onClick={() => this.refs.fileInput.click()} 
+          className="uploadbutton"
+          buttonStyle="btn--outline"
+          buttonSize="btn--large"
+          >Upload File</button>
+        </React.Fragment>
         </div>
         <div>{media}</div>
         <div>{button}</div>
@@ -183,4 +207,11 @@ class Transcript extends React.Component {
 // }
 // }
 
+const rootElement = document.getElementById("root");
+ReactDOM.render(<Upload />, rootElement);
+
+
 export default Transcript;
+
+
+
