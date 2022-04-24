@@ -1,20 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "../../App.css";
 import { Button } from "../Button";
 import "../Transcript.css";
-import ReactDOM from "react-dom";
-import Upload from "./Upload.js";
 // import {Flex} from 'react-spectrum';
 
 // This is the class for the Transcript Page, where the user
 // inputs the transcript to parse through the nlp model
-
-
 class Transcript extends React.Component {
-  handleFileUpload = event => {
-    console.log(event.target.files[0].name);
-  };
-
   constructor(props) {
     super(props);
     this.handleTextClick = this.handleTextClick.bind(this);
@@ -59,14 +51,17 @@ class Transcript extends React.Component {
 
   handleSubmit() {
     console.log("here");
-    const options = {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
+    fetch('http://127.0.0.1:5000/Transcripts',{
+      method: 'post',
+      mode: 'cors',
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-      respondentValue: this.state.respondentValue,
-      petitionerValue: this.state.petitionerValue
-      })};
-    fetch('http://localhost:5000/Transcripts',{ data: options}).then(response => response.json().then(data => {this.handleResetText(data.result)}));
+        respondentValue: this.state.respondentValue,
+        petitionerValue: this.state.petitionerValue
+        }) 
+    })
+    .then(response => response.json())
+    .then(data => {this.handleResetText(data.result)});
   }
 
   render() {
@@ -77,11 +72,24 @@ class Transcript extends React.Component {
     let button;
     let result;
     if (click == 0) {
-      result = (
-        <div>
-          {this.state.outputValue}
+      if (this.state.outputValue == "") {
+        result = <div></div>
+      } else if (this.state.outputValue == "Invalid input") {
+        result = <div>
+          <p>
+         {this.state.outputValue}
+         </p>
         </div>
-      )
+      }
+      else {
+        result = (
+          <div>
+            <p>
+              Our model predicts the petitioning side to win with {this.state.outputValue}% probability.
+            </p>
+          </div>
+        )
+      }
     }
     else if (click === 1) {
       media = (
@@ -115,20 +123,20 @@ class Transcript extends React.Component {
       if (petText !== "" && resText !== "") {
         button = (
           <div>
-            <form onSubmit={this.handleSubmit} method = "post" >
-              <input
-                type="submit"
-                className="w3-button w3-blue"
-              />
-            </form>
+            <Button className="btn"
+            buttonStyle="btn--outline"
+            buttonSize="btn--large"
+            onClick={this.handleSubmit} >
+              Submit
+            </Button>
           </div>
         );
       }
     } else if (click === 2) {
       media = (
         <div>
-          
-
+          {" "}
+          <p>JAYAPRANEETH RATHI LOST A SWIMMING RACE TO A GUY WITH ONE LEG</p>{" "}
         </div>
       );
     }
@@ -162,25 +170,12 @@ class Transcript extends React.Component {
           >
             Upload File
           </Button> */}
-          <React.Fragment
-          
-          >
-          <input
-            ref="fileInput"
-            onChange={this.handleFileUpload}
-            type="file"
-            style={{ display: "none" }}
-            // multiple={false}
-          />
-          <button onClick={() => this.refs.fileInput.click()} 
-          className="uploadbutton"
-          buttonStyle="btn--outline"
-          buttonSize="btn--large"
-          >Upload File</button>
-        </React.Fragment>
         </div>
         <div>{media}</div>
+        <div><p></p></div>
         <div>{button}</div>
+        <div><p></p></div>
+        <div>{result}</div>
       </div>
     );
   }
@@ -207,11 +202,12 @@ class Transcript extends React.Component {
 // }
 // }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Upload />, rootElement);
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(<Upload />, rootElement);
 
 
 export default Transcript;
 
 
 
+  // "proxy": "http://localhost:5000"

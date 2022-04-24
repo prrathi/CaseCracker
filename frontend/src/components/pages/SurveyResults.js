@@ -56,7 +56,8 @@ color: #ffffff;
     button-align: center;
 
 `
-var data = JSON.parse(sessionStorage.getItem("first"))["justices"];
+// var data = JSON.parse(sessionStorage.getItem("first"))["justices"];
+var data = [];
 
 function SurveyResult() {
   return (

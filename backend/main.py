@@ -11,6 +11,7 @@ import gensim
 from gensim import models, corpora
 from gensim.parsing.preprocessing import preprocess_string
 import pickle
+import math
 
 vader = SentimentIntensityAnalyzer()
 with open('../data/nlp/classify_model.pkl', 'rb') as f:
@@ -25,7 +26,6 @@ model = models.LsiModel(corpus, num_topics = 800)
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Access-Control-Allow-Origin'
-
 
 @app.route('/')
 @cross_origin()
@@ -60,6 +60,7 @@ def survey():
 """
 Transcript endpoint
 """
+@app.route('/Transcripts', methods=['POST', 'GET'])
 @cross_origin()
 # clean input similar to the pdfs and then send predictions from trained models to frontend
 def transcript():
@@ -89,8 +90,10 @@ def transcript():
     tfidf_corpus = tfidf[[processed_pet, processed_res]]
     vals1 = [item[1] for item in model[tfidf_corpus[0]]]
     vals2 = [item[1] for item in model[tfidf_corpus[1]]]
+    if (len(vals1) == 0 or len(vals2) == 0):
+        return {'result': "Invalid input"}  
     output = [vals1[i] - vals2[i] for i in range(800)]
     output.append(polarity)
     result = classify_model.predict_proba([output])
-
-    return {'result': result[0][1]} 
+    final = result[0][1]*100
+    return {'result': "{:0.2f}".format(final)} 
