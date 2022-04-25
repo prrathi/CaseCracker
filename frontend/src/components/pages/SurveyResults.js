@@ -57,7 +57,7 @@ color: #ffffff;
 
 `
 var data = [[0,1,2],[1,2,3],[4,5,6]];
-if (sessionStorage.getItem("first") == 0) {
+if (sessionStorage.getItem("first") == null) {
   data = [[0,1,2],[1,2,3],[4,5,6]];
 } else {
   data = JSON.parse(sessionStorage.getItem("first"))["justices"];
@@ -106,6 +106,48 @@ var options = new Map([
   [  'Amy Coney Barrett', "./images/amy_coney_barrett.png" ]]);
  
 
+var wikiLinks = new Map([
+  [  'Hugo Black', "https://en.wikipedia.org/wiki/Hugo_Black" ],
+  [  'Stanley Reed', "https://en.wikipedia.org/wiki/Stanley_Forman_Reed" ],
+  [  'Felix Frankfurter', "https://en.wikipedia.org/wiki/Felix_Frankfurter"  ],
+  [  'William Douglas', "https://en.wikipedia.org/wiki/William_O._Douglas" ],
+  [  'Francis Murphy', "https://en.wikipedia.org/wiki/Frank_Murphy"  ],
+  [  'James Byrnes', "https://en.wikipedia.org/wiki/James_F._Byrnes" ],
+  [  'Robert Jackson', "https://en.wikipedia.org/wiki/Robert_H._Jackson"  ],
+  [  'Wiley Rutledge', "https://en.wikipedia.org/wiki/Wiley_Rutledge" ],
+  [  'Harold Burton', "https://en.wikipedia.org/wiki/Harold_Hitz_Burton" ],
+  [  'Fred Vinson', "https://en.wikipedia.org/wiki/Fred_M._Vinson" ],
+  [  'Tom Clark', "https://en.wikipedia.org/wiki/Tom_C._Clark" ],
+  [  'Sherman Minton', "https://en.wikipedia.org/wiki/Sherman_Minton" ],
+  [  'Earl Warren', "https://en.wikipedia.org/wiki/Earl_Warren" ],
+  [  'John Harlan', "https://en.wikipedia.org/wiki/John_Marshall_Harlan" ],
+  [  'William Brennan', "https://en.wikipedia.org/wiki/William_J._Brennan_Jr." ],
+  [  'Charles Whittaker', "https://en.wikipedia.org/wiki/Charles_Evans_Whittaker" ],
+  [  'Potter Stewart', "https://en.wikipedia.org/wiki/Potter_Stewart" ],
+  [  'Byron White', "https://en.wikipedia.org/wiki/Byron_White" ],
+  [  'Arthur Goldberg', "https://en.wikipedia.org/wiki/Arthur_Goldberg" ],
+  [  'Abe Fortas', "https://en.wikipedia.org/wiki/Abe_Fortas" ],
+  [  'Thurgood Marshall', "https://en.wikipedia.org/wiki/Thurgood_Marshall" ],
+  [  'Warren Burger', "https://en.wikipedia.org/wiki/Warren_E._Burger" ],
+  [  'Harry Blackmun', "https://en.wikipedia.org/wiki/Harry_Blackmun" ],
+  [  'Lewis Powell', "https://en.wikipedia.org/wiki/Lewis_F._Powell_Jr." ],
+  [  'William Rehnquist', "https://en.wikipedia.org/wiki/William_Rehnquist" ],
+  [  'John Stevens', "https://en.wikipedia.org/wiki/John_Paul_Stevens" ],
+  [  'Sandra O\'Connor', "https://en.wikipedia.org/wiki/Sandra_Day_O%27Connor" ],
+  [  'Antonin Scalia', "https://en.wikipedia.org/wiki/Antonin_Scalia" ],
+  [  'Anthony Kennedy', "https://en.wikipedia.org/wiki/Anthony_Kennedy" ],
+  [  'David Souter', "https://en.wikipedia.org/wiki/David_Souter" ],
+  [  'Clarence Thomas', "https://en.wikipedia.org/wiki/Clarence_Thomas" ],
+  [  'Ruth Bader Ginsburg', "https://en.wikipedia.org/wiki/Ruth_Bader_Ginsburg" ],
+  [  'Stephen Breyer', "https://en.wikipedia.org/wiki/Stephen_Breyer" ],
+  [  'John Roberts', "https://en.wikipedia.org/wiki/John_Roberts" ],
+  [  'Samuel Alito', "https://en.wikipedia.org/wiki/Samuel_Alito" ],
+  [  'Sonia Sotomayor', "https://en.wikipedia.org/wiki/Sonia_Sotomayor" ],
+  [  'Elena Kagan', "https://en.wikipedia.org/wiki/Elena_Kagan" ],
+  [  'Neil Corsuch', "https://en.wikipedia.org/wiki/Neil_Gorsuch" ],
+  [  'Brett Kavanaugh', "https://en.wikipedia.org/wiki/Brett_Kavanaugh" ],
+  [  'Amy Coney Barrett', "https://en.wikipedia.org/wiki/Amy_Coney_Barrett" ]]);
+
 function SurveyResult() {
   
   return (
@@ -127,7 +169,7 @@ function SurveyResult() {
               
                   </div>
                   <div className='smallRightBox'>
-                    <a href = 'https://en.wikipedia.org/wiki/Stephen_Breyer'>
+                    <a href = {wikiLinks.get(data[0][0])}>
                       <LearnMore className='btns' buttonStyle='btn--outline' buttonSize='btn--large'> Learn More </LearnMore>
                     </a>
                       
@@ -153,7 +195,7 @@ function SurveyResult() {
               
                   </div>
                   <div className='smallRightBox'>
-                  <a href = 'https://en.wikipedia.org/wiki/Ruth_Bader_Ginsburg'>
+                  <a href = {wikiLinks.get(data[1][0])}>
                       <LearnMore className='btns' buttonStyle='btn--outline' buttonSize='btn--large'> Learn More </LearnMore>
                     </a>
                      
@@ -178,7 +220,7 @@ function SurveyResult() {
               
                   </div>
                   <div className='smallRightBox'>
-                  <a href = 'https://en.wikipedia.org/wiki/Sonia_Sotomayor'>
+                  <a href = {wikiLinks.get(data[2][0])}>
                       <LearnMore className='btns' buttonStyle='btn--outline' buttonSize='btn--large'> Learn More </LearnMore>
                     </a>
                     
