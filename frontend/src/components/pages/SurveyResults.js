@@ -56,6 +56,7 @@ color: #ffffff;
     button-align: center;
 
 `
+
 var data = [[0,1,2],[1,2,3],[4,5,6]];
 if (sessionStorage.getItem("first") == null) {
   data = [[0,1,2],[1,2,3],[4,5,6]];
