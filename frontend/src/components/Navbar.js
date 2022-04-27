@@ -70,7 +70,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Transcripts
+               Input Transcript 
               </Link>
             </li>
           </ul>
