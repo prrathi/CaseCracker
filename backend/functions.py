@@ -135,14 +135,26 @@ def findClosestJustice(userAvg):
     judgeOne = [justice_names[minJudgeFirst], minIssueAreaOne[0], minIssueAreaOne[1]]
     judgeTwo = [justice_names[minJudgeSecond], minIssueAreaTwo[0], minIssueAreaTwo[1]]
     judgeThree = [justice_names[minJudgeThird], minIssueAreThree[0], minIssueAreThree[1]]
-    minJudge = [judgeOne, judgeTwo, judgeThree]
+    leaning = findPoliticalLeaning(userAvg)
+    minJudge = [judgeOne, judgeTwo, judgeThree, leaning]
     return minJudge
 
+
+def findPoliticalLeaning(userAvg):
+    sum = 0
+    for i in range(len(userAvg)):
+        sum += userAvg[i]
+    sum /= len(userAvg)
+    if (sum < 1.4):
+        return ["Conservative"]
+    if (sum > 1.6):
+        return ["Liberal"]
+    return ["Moderate"]
 
 
 # Example method to use main
 def main():
-    selfResponses = [1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 2, 1, 1, 1]
+    selfResponses = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     issueAverages = findIssueAvg(selfResponses)
     closestJustice = findClosestJustice(issueAverages)
     print(closestJustice)

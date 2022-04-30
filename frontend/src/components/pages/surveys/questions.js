@@ -10,7 +10,7 @@ export const json =
        {
         "type": "radiogroup",
         "name": "question1",
-        "title": "People should have the right to bear arms.",
+        "title": "People should not have the right to bear arms.",
         "isRequired": true,
         "choices": [
          {
@@ -42,7 +42,7 @@ export const json =
        {
         "type": "radiogroup",
         "name": "question3",
-        "title": "The death sentence should be used.",
+        "title": "The death sentence should not be used.",
         "isRequired": true,
         "choices": [
          {
@@ -74,7 +74,7 @@ export const json =
        {
         "type": "radiogroup",
         "name": "question5",
-        "title": "Affirmative action should be abolished.",
+        "title": "Affirmative action should not be abolished.",
         "isRequired": true,
         "choices": [
          {
@@ -106,7 +106,7 @@ export const json =
        {
         "type": "radiogroup",
         "name": "question7",
-        "title": "School-wide prayer should be allowed.",
+        "title": "School-wide prayer should not be allowed.",
         "isRequired": true,
         "choices": [
          {
@@ -218,7 +218,7 @@ export const json =
        {
         "type": "radiogroup",
         "name": "question14",
-        "title": "DNA databases like 23AndMe shouldn't be allowed to post data publicly.",
+        "title": "DNA databases like 23AndMe should be allowed to post data publicly.",
         "isRequired": true,
         "choices": [
          {

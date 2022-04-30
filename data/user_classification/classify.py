@@ -76,7 +76,6 @@ def findJusticeName(justiceID):
     print (justice_dict.head())
     return(justice_dict.iat[justiceID,1])
 
-
 # Example method to use main
 def main():
     # Import Dataframe

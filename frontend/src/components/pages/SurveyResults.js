@@ -21,8 +21,11 @@ font-weight: bolder;
 const Lean = styled.text`
 font-size: 40px;
 text-align: center;
-color: blue
+color: black
+font-weight: bolder;
 `
+
+
 const MostSimilar = styled.text`
 font-size: 40px;
 text-align: center;
@@ -154,7 +157,7 @@ function SurveyResult() {
   return (
     <div className='surveyresults-container'>
         <JustLean>Based on your responses, you appear to lean</JustLean>
-        <Lean> Liberal </Lean>
+        <Lean> {data[3][0]} </Lean>
         <div className='firstjusticebox'> 
             <div className='leftfirstJusticebox'>
                 <img src={options.get(data[0][0])} height={400} width={325} />
