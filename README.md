@@ -6,7 +6,7 @@ The other main component of our project examines the Supreme Court justices as o
 
 On the architecture side, we have three main divisions in our code: frontend, backend, and data. Our frontend is built using ReactJS, HTML, and CSS, with FETCH requests used to connect to the backend. The backend is written entirely in Python, receiving information from and sending information to the frontend, while also interacting with the models built in our data portion. Specifically, we load our trained models into the backend so that our requests from the frontend can be handled effectively. Lastly, for the data portion, we used exclusively Python as well, with a variety of libraries ranging from PyPDF and Pandas for parsing, to Scikit-learn and Gensim for modeling, to accomplish our tasks.
 
-[FILL IN THE INSTALLATIONS HERE]
+[FILL IN THE INSTALLATIONS HERE] Once the necessary packages have been installed, from the main directory, run in terminal `cd backend` and then `flask run ` to start the flask server. Then run `cd ../frontend` and then `npm start` to start the react front-end. The project will then be available at the url `http://localhost:3000/` to interact with!
 
 We divided up the work as follows:
 
