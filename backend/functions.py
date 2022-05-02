@@ -146,9 +146,9 @@ def findPoliticalLeaning(userAvg):
         sum += userAvg[i]
     sum /= len(userAvg)
     if (sum < 1.4):
-        return ["Conservative"]
-    if (sum > 1.6):
         return ["Liberal"]
+    if (sum > 1.6):
+        return ["Conservative"]
     return ["Moderate"]
 
 

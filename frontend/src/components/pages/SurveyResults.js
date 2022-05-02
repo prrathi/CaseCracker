@@ -157,7 +157,7 @@ function SurveyResult() {
   return (
     <div className='surveyresults-container'>
         <JustLean>Based on your responses, you appear to lean</JustLean>
-        <Lean> {data[3][0]} </Lean>
+        <Lean> {data[3]} </Lean>
         <div className='firstjusticebox'> 
             <div className='leftfirstJusticebox'>
                 <img src={options.get(data[0][0])} height={400} width={325} />
