@@ -7,8 +7,6 @@ The other main component of our project examines the Supreme Court justices as o
 On the architecture side, we have three main divisions in our code: frontend, backend, and data. Our frontend is built using ReactJS, HTML, and CSS, with FETCH requests used to connect to the backend. The backend is written entirely in Python, receiving information from and sending information to the frontend, while also interacting with the models built in our data portion. Specifically, we load our trained models into the backend so that our requests from the frontend can be handled effectively. Lastly, for the data portion, we used exclusively Python as well, with a variety of libraries ranging from PyPDF and Pandas for parsing, to Scikit-learn and Gensim for modeling, to accomplish our tasks.
 
 
-[FILL IN THE INSTALLATIONS HERE] 
-
 Backend / Data Package Installation Instructions:
 1. Install Python3 from (https://www.python.org/)[python.org], preferably Python 3.8 or newer.
 2. Using a terminal, navigate into the backend folder.
