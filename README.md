@@ -18,6 +18,11 @@ Backend / Data Package Installation Instructions:
 6. Run `source bin/activate`
 7. If on Windows, run `pip install -r requirements.txt`. If on MacOS or Linux, run `python3 -m pip install -r requirements.txt`.
 
+Frontend Installation:
+1. Install NodeJs using https://nodejs.org/en/. Recommended to use Node version 16.15.0.
+2. Using a terminal, navigate into the frontend folder.
+3. Run `npm install`.
+
 Once the necessary packages have been installed, from the main directory, run in terminal `cd backend` and then `flask run ` to start the flask server. Then run `cd ../frontend` and then `npm start` to start the react front-end. The project will then be available at the url `http://localhost:3000/` to interact with!
 
 We divided up the work as follows:
