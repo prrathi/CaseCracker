@@ -49,8 +49,9 @@ function onComplete(sender, result) {
 	    headers: {'Content-Type': 'application/json'}
     }).then(res => res.json())
     .then(json => sessionStorage.setItem("first", JSON.stringify(json)))
-    // .then(window.location.href = "./SurveyResults")
-    setTimeout(window.location.href ="./SurveyResults", 3000)
+    setTimeout(function() {
+        window.location.href ="./SurveyResults";
+    }, 1000);
     // var xhr = new XMLHttpRequest();
     // xhr.open("POST", "YourServiceForStoringSurveyResultsAsJSON_URL");
     // xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");

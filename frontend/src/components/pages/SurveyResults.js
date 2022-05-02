@@ -105,7 +105,7 @@ var options = new Map([
   [  'Samuel Alito', "./images/samuel_alito_highres.png" ],
   [  'Sonia Sotomayor', "./images/sonia_sotomayor_highres.png" ],
   [  'Elena Kagan', "./images/elena_kagan_highres.png" ],
-  [  'Neil Corsuch', "./images/neil_corsuch_highres.png" ],
+  [  'Neil Gorsuch', "./images/neil_gorsuch_highres.png" ],
   [  'Brett Kavanaugh', "./images/brett_kavanuagh_highres.png" ],
   [  'Amy Coney Barrett', "./images/amy_coney_barrett.png" ]]);
  
@@ -148,7 +148,7 @@ var wikiLinks = new Map([
   [  'Samuel Alito', "https://en.wikipedia.org/wiki/Samuel_Alito" ],
   [  'Sonia Sotomayor', "https://en.wikipedia.org/wiki/Sonia_Sotomayor" ],
   [  'Elena Kagan', "https://en.wikipedia.org/wiki/Elena_Kagan" ],
-  [  'Neil Corsuch', "https://en.wikipedia.org/wiki/Neil_Gorsuch" ],
+  [  'Neil Gorsuch', "https://en.wikipedia.org/wiki/Neil_Gorsuch" ],
   [  'Brett Kavanaugh', "https://en.wikipedia.org/wiki/Brett_Kavanaugh" ],
   [  'Amy Coney Barrett', "https://en.wikipedia.org/wiki/Amy_Coney_Barrett" ]]);
 
