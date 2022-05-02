@@ -21,7 +21,9 @@ Frontend Installation:
 2. Using a terminal, navigate into the frontend folder.
 3. Run `npm install`.
 
-Once the necessary packages have been installed, from the main directory, run in terminal `cd backend` and then `flask run ` to start the flask server. Then run `cd ../frontend` and then `npm start` to start the react front-end. The project will then be available at the url `http://localhost:3000/` to interact with!
+Once the necessary packages have been installed, from the main directory, run in terminal `cd backend` and then `flask run ` to start the flask server. If you receive an error
+message: "Error: Could not locate a Flask application. You did not provide the "FLASK_APP" environment variable, and a "wsgi.py" or "app.py" module was not found in the current directory.", run `export FLASK_APP=main` followed by `flask run`. 
+Then run `cd ../frontend` and then `npm start` to start the react front-end. The project will then be available at the url `http://localhost:3000/` to interact with!
 
 We divided up the work as follows:
 
