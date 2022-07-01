@@ -1,4 +1,4 @@
-# course-project-kk-b
+# Case Cracker
 
 Our project, called Case Cracker, aims at providing several services related to the Supreme Court. Firstly, our main model is built using natural language processing techniques, and aims to predict the outcome of a court case based on the words each of the two sides says. To train this model, we parsed online pdfs available of past court cases, and trained machine learning models using what the final outcome was as the target. 
 
